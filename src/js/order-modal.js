@@ -10,9 +10,9 @@ let currentModelId = null;
 let currentColor = null;
 
 /**
- * Відкриває модальне вікно замовлення
- * @param {string} modelId - id обраного дивану
- * @param {string} color - колір дивану (hex, rgb, etc.)
+ 
+ * @param {string} modelId 
+ * @param {string} color 
  */
 export function openOrderModal(modelId, color) {
   currentModelId = modelId;
@@ -22,7 +22,6 @@ export function openOrderModal(modelId, color) {
   document.body.classList.add('modal-open');
 }
 
-/** Закриває модальне вікно та очищає форму */
 function closeOrderModal() {
   modal.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
@@ -42,7 +41,6 @@ form.addEventListener('submit', async e => {
   const phone = form.phone.value.trim();
   const comment = form.comment.value.trim();
 
-  // Мінімальна валідація
   if (!email || !phone) {
     iziToast.error({
       title: 'Помилка',
@@ -60,8 +58,6 @@ form.addEventListener('submit', async e => {
   };
 
   try {
-    // Тут можна додати показ лоадера, якщо хочеш
-
     const response = await fetch(
       'https://furniture-store.b.goit.study/api/orders',
       {
@@ -70,8 +66,6 @@ form.addEventListener('submit', async e => {
         body: JSON.stringify(data),
       }
     );
-
-    // І приховати лоадер після відповіді
 
     if (!response.ok) {
       const error = await response.json();
@@ -96,5 +90,4 @@ form.addEventListener('submit', async e => {
   }
 });
 
-// Доступність функції глобально для виклику з консолі або іншого коду
 window.openOrderModal = openOrderModal;

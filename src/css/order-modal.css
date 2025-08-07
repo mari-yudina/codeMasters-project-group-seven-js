@@ -1,9 +1,7 @@
-/* Блокуємо скролинг при відкритій модалці */
 body.modal-open {
   overflow: hidden;
 }
 
-/* Основний контейнер модалки */
 .order-modal {
   position: fixed;
   inset: 0;
@@ -11,25 +9,22 @@ body.modal-open {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  pointer-events: none; /* запобігає випадковим клікам до відкриття */
+  pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-/* Показуємо модалку, коли клас is-hidden прибрано */
 .order-modal:not(.is-hidden) {
   pointer-events: auto;
   opacity: 1;
 }
 
-/* Затінення фону */
 .order-modal__overlay {
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Вміст модального вікна */
 .order-modal__content {
   position: relative;
   background: #fff;
@@ -41,9 +36,6 @@ body.modal-open {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Mobile first — вже враховано у базі */
-
-/* Tablet — з 768px */
 @media screen and (min-width: 768px) {
   .order-modal__content {
     padding: 2.5rem 3rem;
@@ -51,7 +43,6 @@ body.modal-open {
   }
 }
 
-/* Desktop — з 1440px */
 @media screen and (min-width: 1440px) {
   .order-modal__content {
     max-width: 866px;
@@ -74,7 +65,6 @@ body.modal-open {
   }
 }
 
-/* Кнопка закриття */
 .order-modal__close {
   position: absolute;
   top: 12px;
@@ -99,14 +89,12 @@ body.modal-open {
   color: #222;
 }
 
-/* Форма */
 .order-modal__form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-/* Стилі для інпутів та текстової області */
 .order-modal__input,
 .order-modal__textarea {
   width: 100%;
@@ -123,7 +111,6 @@ body.modal-open {
   outline: none;
 }
 
-/* Кнопка "Надіслати заявку" */
 .order-modal__submit {
   background-color: #333;
   color: #fff;
