@@ -92,23 +92,22 @@ form.addEventListener('submit', async e => {
   }
 });
 
-// ====  слухач на Дімину кнопку ====
+// Делегування кліку на кнопку "Перейти до замовлення"
 document.addEventListener('click', e => {
   const btn = e.target.closest('.modal-furniture__btn');
   if (!btn) return;
 
+  // Закриваємо будь-яку відкриту модалку з класом .modal--is-open (або як у вас там)
+  const openModals = document.querySelectorAll('.modal.modal--is-open');
+  openModals.forEach(modalEl => {
+    modalEl.classList.remove('modal--is-open');
+    document.body.classList.remove('body--no-scroll');
+  });
+
+  // Беремо id та color з атрибутів кнопки
   const modelId = btn.dataset.modelId || null;
   const color = btn.dataset.color || null;
 
-  // Закриваємо модалку Дімона
-  const productModal = btn.closest('.modal');
-  if (productModal) {
-    productModal.classList.remove('is-open'); // якщо в нього такий клас
-    productModal.style.display = 'none'; // резервний варіант
-    document.body.classList.remove('modal-open');
-  }
-
-  // Відкриваємо  модалку
   openOrderModal(modelId, color);
 });
 
