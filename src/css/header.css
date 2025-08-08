@@ -1,214 +1,199 @@
 
+   .header {
+       padding: 17px 0;
+   }
 
+   .container {
+       max-width: 100%;
+       padding: 0 20px;
+       margin: 0 auto;
+   }
 
- .header {
-     padding: 17px 0;
- }
+   .nav {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
 
+   .nav-logo {
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+   }
 
- .nav {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
- }
+   .nav-list {
+       display: none;
+   }
 
- .nav-logo {
-     display: inline-flex;
-     align-items: center;
-     justify-content: center;
- }
+   .nav-link {
+       position: relative;
+       display: block;
+       font-weight: 500;
+       letter-spacing: 0.02em;
+       color: #1a1a1a;
+       text-decoration: none;
+       transition: color 200ms ease-in;
+       cursor: pointer;
+   }
 
- .nav-list {
-     display: flex;
-     align-items: center;
-     justify-content: flex-end;
-     gap: 32px;
- }
+   .nav-link:hover,
+   .nav-link:focus {
+       color: #6b0609;
+   }
 
- .nav-link {
-     position: relative;
-     display: block;
-     font-weight: 500;
-     letter-spacing: 0.02em;
-     transition: color 200ms ease-in;
-     cursor: pointer;
-     color: #1a1a1a;
-     text-decoration: none;
- }
+   .nav-link:hover::after,
+   .nav-link:focus::after,
+   .nav-link.active::after {
+       background-color: #6b0609;
+       transform: translateX(-50%) scaleX(1);
+   }
 
- .btn-to-shop-one {
-        color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-    border-radius: 100px;
-        padding: 8px 20px;
-        width: 175px;
-        height: 42px;
-box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-    background: #6b0609;
- }
- .btn-to-shop-one:hover,
- .btn-to-shop-one:focus {
-    box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-        color: #fff;
-        background: #6b0609;
-        opacity: 0.5;
- }
+   .burger-btn {
+       display: block;
+       font-size: 28px;
+       background: none;
+       border: none;
+       cursor: pointer;
+       color: #1a1a1a;
+   }
 
- .nav-link:hover,
- .nav-link:focus {
-     color: #6b0609;;
-  
- }
+   .mobile-menu {
+       position: fixed;
+       top: 0;
+       right: 0;
+       width: 100%;
+       height: 100vh;
+       background-color: #fff;
+       display: none;
+       flex-direction: column;
+       padding: 30px 20px;
+       z-index: 1000;
+       transition: transform 0.3s ease;
+   }
 
- .nav-link::after {
-     content: '';
-     position: absolute;
-     bottom: -4px;
-     left: 50%;
-     transform: translateX(-50%) scaleX(0);
-     width: 110%;
-     height: 4px;
-     background-color: transparent;
-     border-radius: 4px;
-     transition: transform 0.3s ease, background-color 0.3s ease;
- }
+   .mobile-menu.is-open {
+       display: flex;
+   }
 
- .nav-link:hover::after,
- .nav-link:focus::after {
-     background-color: #6b0609;;
- 
-     transform: translateX(-50%) scaleX(1);
- }
+   .mobile-close-btn {
+       align-self: flex-end;
+       font-size: 24px;
+       background: none;
+       border: none;
+       cursor: pointer;
+       color: #1a1a1a;
+       margin-bottom: 20px;
+   }
 
- .nav-link.active::after {
-     background-color: #6b0609;;
-     transform: translateX(-50%) scaleX(1);
- }
+   .mobile-nav {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       gap: 32px;
+       padding: 32px 24px;
+       list-style: none;
+       margin: 0;
+   }
 
+   .nav-link-mobile {
+       font-size: 18px;
+       text-decoration: none;
+       color: #000;
+       cursor: pointer;
+       transition: color 0.3s;
+   }
 
- .burger-btn {
-     display: none;
-     font-size: 28px;
-     background: none;
-     border: none;
-     cursor: pointer;
-     color: #1a1a1a;
- }
+   .nav-link-mobile:hover,
+   .nav-link-mobile:focus {
+       color: #6b0609;
+   }
 
- 
- .mobile-menu {
-     position: fixed;
-     top: 0;
-     right: 0;
-     width: 100%;
-     height: 100vh;
-     background-color: #fff;
-     display: none;
-     flex-direction: column;
-     padding: 30px 20px;
-     z-index: 1000;
-     transition: transform 0.3s ease;
- }
+   .btn-to-shop,
+   .btn-to-shop-one {
+       color: #fff;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       border-radius: 100px;
+       padding: 8px 20px;
+       width: 175px;
+       height: 42px;
+       background: #6b0609;
+       font-weight: 500;
+       text-decoration: none;
+       box-shadow:
+           0 1px 2px 0 rgba(8, 12, 9, 0.05),
+           inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+           inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+           inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+           inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+   }
 
- .mobile-menu.is-open {
-     display: flex;
- }
+   .btn-to-shop:hover,
+   .btn-to-shop:focus,
+   .btn-to-shop-one:hover,
+   .btn-to-shop-one:focus {
+       opacity: 0.5;
+       background: #6b0609;
+   }
 
- .mobile-close-btn {
-     align-self: flex-end;
-     font-size: 24px;
-     background: none;
-     border: none;
-     cursor: pointer;
-     color: #1a1a1a;
-     margin-bottom: 20px;
- }
+   .no-scroll {
+       overflow: hidden;
+       height: 100vh;
+   }
+   @media only screen and (min-width: 768px) {
+       .container {
+           max-width: 768px;
+           padding: 0 32px;
+           margin: 0 auto;
+       }
+       .mobile-nav {
+        display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 32px;
+        
+            padding: 32px 24px;
+            list-style: none;
+            margin: 0;
+       }
 
+       .nav-list {
+           display: flex;
+           align-items: center;
+           justify-content: flex-end;
+           gap: 32px;
+       }
 
+       .burger-btn {
+           display: none;
+       }
 
- .mobile-nav {
-     display: flex;
-     flex-direction: column;
-     align-items: flex-end;
-     gap: 32px;
-   
-     padding: 32px 24px;
-     list-style: none;
-     margin: 0;
- }
+       .mobile-menu {
+           width: 300px;
+       }
 
- .nav-link-mobile {
-     font-size: 18px;
-     text-decoration: none;
-     color: #000;
- }
+       h2 {
+           font-size: 48px;
+       }
+   }
+   @media only screen and (min-width: 1440px) {
+       .container {
+           max-width: 1440px;
+           padding: 0 64px;
+           margin: 0 auto;
+       }
 
- .nav-link-mobile:hover,
- .nav-link-mobile:focus {
-     color: #6b0609;
-     ;
+       .mobile-menu {
+           display: none !important;
+       }
 
- }
+       .burger-btn {
+           display: none;
+       }
 
-
- .btn-to-shop {
-     display: inline-flex;
-     align-items: center;
-     justify-content: center;
-     color: #fff;
-     background-color: #6b0609;
-     border-radius: 100px;
-     padding: 8px 20px;
-     width: 175px;
-     height: 42px;
-     box-shadow: 0 1px 2px rgba(8, 12, 9, 0.05),
-         inset 0 -2px 1px rgba(0, 0, 0, 0.2),
-         inset 0 0 0 1px rgba(8, 12, 9, 0.15),
-         inset 0 2px 1px rgba(255, 255, 255, 0.25),
-         inset 0 32px 24px rgba(255, 255, 255, 0.05);
-     text-decoration: none;
-     font-weight: 500;
- }
-
-.btn-to-shop:hover,
-.btn-to-shop:focus {
-    box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-    color: #fff;
-    background: #6b0609;
-    opacity: 0.5;
-    
- }
- .nav-link-mobile {
-
- }
-
-
- 
- .no-scroll {
-     overflow: hidden;
- }
-
-
- @media screen and (max-width: 768px) {
-     .nav-list {
-         display: none;
-     }
-
-     .burger-btn {
-         display: block;
-     }
- }
-
-  @media screen and (max-width: 375px) {
-.mobile-nav {
-    
-     align-items: center;
-     justify-content: center;
-    }
-
-      .burger-btn {
-          display: block;
-      }
-  }
+       .mobile-nav {
+           display: none;
+       }
+   }
