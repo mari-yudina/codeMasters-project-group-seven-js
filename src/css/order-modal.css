@@ -25,6 +25,10 @@ body.modal-open {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+.order-modal__title {
+  text-align: center;
+}
+
 .order-modal__content {
   position: relative;
   background: #fff;
@@ -35,11 +39,41 @@ body.modal-open {
   z-index: 1001;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+.order-modal__submit {
+  border-radius: 100px;
+  padding: 10px 24px;
+
+  height: 46px;
+
+  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--opacity-white-5);
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+  color: white;
+
+  background: #6b0609;
+
+  width: auto;
+  max-width: 100%;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
 @media screen and (min-width: 768px) {
   .order-modal__content {
     padding: 2.5rem 3rem;
     max-width: 704px;
+  }
+  .order-modal__submit {
+    width: 196px;
+    margin: 0 auto;
   }
 }
 
@@ -59,11 +93,6 @@ body.modal-open {
 
   .order-modal__input,
   .order-modal__textarea {
-    font-size: 1.1rem;
-    padding: 1rem;
-  }
-
-  .order-modal__submit {
     font-size: 1.1rem;
     padding: 1rem;
   }
@@ -115,24 +144,14 @@ body.modal-open {
   outline: none;
 }
 
-.order-modal__submit {
-  border-radius: 100px;
-  padding: 10px 24px;
-  width: 295px;
-  height: 46px;
-
-  box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
-    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-    inset 0 0 0 1px var(--opacity-neutral-darkest-15),
-    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 32px 24px 0 var(--opacity-white-5);
-  background: var(--color-madang);
-
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
 .order-modal__submit:hover,
 .order-modal__submit:focus {
   background-color: #555;
+}
+
+.form-input:not(:placeholder-shown):invalid {
+  border-color: red;
+}
+.form-input:not(:placeholder-shown):valid {
+  border-color: green;
 }
