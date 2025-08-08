@@ -3,11 +3,7 @@
        padding: 17px 0;
    }
 
-   .container {
-       max-width: 100%;
-       padding: 0 20px;
-       margin: 0 auto;
-   }
+   
 
    .nav {
        display: flex;
@@ -143,11 +139,7 @@
        height: 100vh;
    }
    @media only screen and (min-width: 768px) {
-       .container {
-           max-width: 768px;
-           padding: 0 32px;
-           margin: 0 auto;
-       }
+     
        .mobile-nav {
         display: flex;
             flex-direction: column;
@@ -159,16 +151,7 @@
             margin: 0;
        }
 
-       .nav-list {
-           display: flex;
-           align-items: center;
-           justify-content: flex-end;
-           gap: 32px;
-       }
-
-       .burger-btn {
-           display: none;
-       }
+      
 
        .mobile-menu {
            width: 300px;
@@ -179,11 +162,13 @@
        }
    }
    @media only screen and (min-width: 1440px) {
-       .container {
-           max-width: 1440px;
-           padding: 0 64px;
-           margin: 0 auto;
-       }
+      
+                 .nav-list {
+                     display: flex;
+                     align-items: center;
+                     justify-content: flex-end;
+                     gap: 32px;
+                 }
 
        .mobile-menu {
            display: none !important;
