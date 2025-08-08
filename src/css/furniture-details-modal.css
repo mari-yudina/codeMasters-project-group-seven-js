@@ -1,0 +1,126 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  &.modal--is-open {
+    display: flex;
+  }
+}
+
+.modal__content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  padding: 2rem;
+
+  background: #ffff;
+  border-radius: 8px;
+  transform: scale(0.95);
+  animation: scaleUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal__close-btn::after {
+  content: '✕';
+
+  font-size: 1.5rem;
+  color: #2d3748;
+  transition: color 0.3s ease;
+}
+
+.modal__close-btn:hover::after {
+  color: #721215;
+}
+
+.modal-furniture {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-furniture__img {
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.modal-furniture__title {
+  margin-top: 10px;
+}
+
+.modal-furniture__description {
+  margin-top: 10px;
+}
+
+.modal-furniture__price {
+  margin-top: 10px;
+}
+
+.modal-furniture__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  padding: 1rem 2rem;
+
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.furnitures__colors__item--pressed {
+  border: 3px solid #907777;
+}
+/* ========================================= */
+
+.rating {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  color: #ddd;
+  line-height: 1;
+}
+
+.rating::after {
+  content: '★★★★★';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000;
+  overflow: hidden;
+  width: var(--rating-percent, 0%);
+}
+
+/* ------------------------------------------------------ */
+
+.body--no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}

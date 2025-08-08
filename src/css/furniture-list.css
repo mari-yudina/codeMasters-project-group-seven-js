@@ -1,0 +1,114 @@
+.our-furnitures__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.categories__item {
+  width: 159px;
+  height: 122px;
+  list-style: none;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.categories__thumb {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    border: 3px solid #7a0508;
+    box-shadow: 0 4px 12px rgba(255, 107, 10, 0.1);
+  }
+
+  &.categories__thumb--active {
+    border: 6px solid #7a0508;
+    box-shadow: 0 4px 12px rgba(255, 107, 10, 0.1);
+  }
+}
+
+.categories__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.categories__item__name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #ffff;
+}
+
+.our-furnitures__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.furnitures__colors__list {
+  display: flex;
+}
+
+.furnitures__colors__item {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #907777;
+}
+
+.our-furnitures__load-more-btn.is-hidden {
+  display: none;
+}
+
+/* //////////////////// */
+.loader-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* напівпрозорий білий фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loader-box-hidden {
+  display: none;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #2f4cda;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
