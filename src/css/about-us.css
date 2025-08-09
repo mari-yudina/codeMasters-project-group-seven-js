@@ -1,0 +1,66 @@
+.about-us-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background-color: #f0e6e6;
+}
+
+.about-us-title {
+  margin-bottom: 24px;
+}
+
+.about-us-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #080c09;
+}
+
+.about-us-text-wrapper {
+  margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .about-us-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .about-us-text {
+    font-size: 18px;
+  }
+  .about-us-image-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .about-us-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .about-us-text-wrapper {
+    padding-top: 119px;
+    padding-bottom: 119px;
+  }
+
+  .about-us-container {
+    display: flex;
+
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .about-us-image {
+    flex-shrink: 0;
+  }
+
+  .about-us-text-wrapper {
+    margin: 0;
+  }
+
+  .about-us-image-img {
+    margin: 0;
+  }
+}
