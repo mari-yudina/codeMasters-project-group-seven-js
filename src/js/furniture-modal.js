@@ -9,7 +9,6 @@ refs.modalCloseBtn.addEventListener("click", closeModal);
 refs.modal.addEventListener("click", (event) => {
     if (event.target === refs.modal) closeModal();
 });
-refs.modal.addEventListener("click", handleColorTogle);
 
 
 export async function openModal(event) {
@@ -22,10 +21,7 @@ export async function openModal(event) {
     if (!furnitureItem) return;
 
     const currentFurniture = furnitureItem.dataset.id;
-
     const furniture = data.find(({ _id }) => _id === currentFurniture);
-    console.log(furniture);
-
 
     refs.modalFurniture.innerHTML = furnitureModalMarkup(furniture);
     refs.modal.classList.add("modal--is-open");
@@ -55,18 +51,3 @@ function handleEscKey(event) {
         closeModal()
     };
 }
-
-
-function handleColorTogle(event) {
-
-    const colorBtn = event.target.closest('.furnitures__colors__item');
-    if (!colorBtn) return;
-    document.querySelectorAll('.furnitures__colors__item').forEach(btn =>
-        btn.classList.remove('furnitures__colors__item--pressed')
-    );
-    colorBtn.classList.add('furnitures__colors__item--pressed')
-
-}
-
-
-

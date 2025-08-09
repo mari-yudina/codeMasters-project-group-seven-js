@@ -3,7 +3,7 @@ export default {
     categoriesItems: document.querySelectorAll('.categories__item'),
     categoriesTumbs: document.querySelectorAll('.categories__thumb'),
     furnitures: document.querySelector('.our-furnitures__list'),
-    loadMore: document.querySelector('.our-furnitures__load-more-btn'),
+    loadMoreBtn: document.querySelector('.our-furnitures__load-more-btn'),
     //---------------modal-----------------------------------
     modal: document.querySelector('.modal'),
     modalFurniture: document.querySelector('.modal-furniture'),
