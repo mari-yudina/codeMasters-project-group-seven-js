@@ -112,7 +112,7 @@ body.modal-open {
 
 .order-modal__close:hover,
 .order-modal__close:focus {
-  color: #000;
+  color: #000000;
 }
 
 /* Заголовок */
@@ -146,7 +146,8 @@ body.modal-open {
 
 .order-modal__submit:hover,
 .order-modal__submit:focus {
-  background-color: #555;
+  opacity: 0.5;
+  background: #6b0609;
 }
 
 .form-input:not(:placeholder-shown):invalid {
