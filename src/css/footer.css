@@ -2,6 +2,14 @@
   background-color: #6b0609;
 }
 
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+}
+
 /* mobile*/
 @media (min-width: 375px) and (max-width: 767px) {
   .footer-logo {
@@ -27,8 +35,7 @@
     justify-content: flex-start;
     flex-direction: column;
     gap: 65px;
-    width: 228px;
-    height: 97px;
+    max-width: 100%;
   }
 
   .icon-company-logo {
@@ -36,14 +43,7 @@
   }
 
   .footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     gap: 24px;
-    width: 335px;
-    height: 412px;
-    max-width: 1280px;
   }
 
   .footer-text {
@@ -59,8 +59,7 @@
     justify-content: center;
     flex-direction: column;
     gap: 32px;
-    width: 105px;
-    height: 200px;
+    max-width: 100%;
   }
 
   .footer-item-link {
@@ -76,8 +75,7 @@
     justify-content: flex-start;
     flex-direction: row;
     gap: 24px;
-    width: 120px;
-    height: 24px;
+    max-width: 100%;
   }
 
   .social-icon-white {
@@ -113,8 +111,7 @@
     justify-content: flex-start;
     flex-direction: column;
     gap: 65px;
-    width: 228px;
-    height: 97px;
+    max-width: 100%;
     fill: #fff;
   }
 
@@ -123,14 +120,7 @@
   }
 
   .footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     gap: 24px;
-    width: 704px;
-    height: 241px;
-    max-width: 704px;
   }
 
   .footer-text {
@@ -146,8 +136,7 @@
     justify-content: flex-start;
     flex-direction: row;
     gap: 32px;
-    width: 409px;
-    height: 26px;
+    max-width: 100%;
   }
 
   .footer-item-link {
@@ -163,8 +152,7 @@
     justify-content: flex-start;
     flex-direction: row;
     gap: 24px;
-    width: 120px;
-    height: 24px;
+    max-width: 100%;
   }
 
   .social-icon-white {
@@ -200,8 +188,7 @@
     justify-content: flex-start;
     flex-direction: column;
     gap: 65px;
-    width: 228px;
-    height: 97px;
+    max-width: 100%;
     fill: #fff;
   }
 
@@ -210,13 +197,8 @@
   }
 
   .footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
     gap: 80px;
-    height: 97px;
-    max-width: 1318px;
+    flex-direction: row;
   }
 
   .footer-text {
@@ -232,8 +214,7 @@
     justify-content: flex-start;
     flex-direction: row;
     gap: 32px;
-    width: 409px;
-    height: 26px;
+    max-width: 100%;
   }
 
   .footer-item-link {
