@@ -1,3 +1,4 @@
+/* --------------------------------------------categories----------------- */
 .our-furnitures__categories {
   display: flex;
   flex-wrap: wrap;
@@ -54,61 +55,64 @@
   color: #ffff;
 }
 
+/* -----------------------------------------our-furnitures__list----------------------------- */
+
 .our-furnitures__list {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  padding-bottom: 32px;
+  padding-top: 40px;
 }
 
-.furnitures__colors__list {
+.furnitures__image {
+  border-radius: 8px;
+  width: 335px;
+  height: 277px;
+  margin-bottom: 16px;
+}
+
+.furnitures__title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 160%;
+  margin-bottom: 8px;
+}
+
+.furnitures__price {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 160%;
+  margin-bottom: 16px;
+}
+
+.furnitures__colors-list {
   display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
 }
 
 .furnitures__colors__item {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 1px solid #907777;
 }
 
+.furnitures__details-btn {
+  border: none;
+  border-radius: 100px;
+  padding: 10px 24px;
+  width: 335px;
+  height: 46px;
+  color: #210b08;
+  background: #f3f3f3;
+}
+
+.our-furnitures__load-more-btn {
+  border: none;
+  margin-bottom: 48px;
+}
 .our-furnitures__load-more-btn.is-hidden {
   display: none;
-}
-
-/* //////////////////// */
-.loader-box {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.8); /* напівпрозорий білий фон */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.loader-box-hidden {
-  display: none;
-}
-
-.loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #2f4cda;
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }

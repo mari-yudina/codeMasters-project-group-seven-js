@@ -1,5 +1,5 @@
 import { getFurnitureByCategory, getFurnitures } from "./furnitures-api";
-import { clearFilterBtn, errorMessage, hidden, hideLoader, showLoader, warningMessage } from "./furnitures-helpers";
+import { clearFilterBtn, errorMessage, hideLoader, lastPageMessage, showLoader, smoothScrollLoadMore, warningMessage } from "./furnitures-helpers";
 import { furnituresCardMarkup } from "./render-functions";
 import { data } from "./furniture-data";
 import refs from "./refs";
@@ -35,11 +35,7 @@ export async function handlerCategoriesFilter(event) {
 
         refs.furnitures.innerHTML = furnituresCardMarkup(filteredData.furnitures);
         data.push(...filteredData.furnitures);
-        hidden(filteredData);
-
-        if (data.length >= +(filteredData.totalItems)) {
-            alert("Усі меблі завантажено!");
-        }
+        lastPageMessage(filteredData);
 
     } catch (error) {
         errorMessage(`Помилка при завантаженні меблів по категоріях: ${error}`);
@@ -65,24 +61,12 @@ export async function onLoadMore() {
 
         refs.furnitures.insertAdjacentHTML('beforeend', furnituresCardMarkup(filteredData.furnitures));
         data.push(...filteredData.furnitures);
-        hidden(filteredData);
-        scrollToNewItems();
-
-        if (data.length >= +(filteredData.totalItems)) {
-            alert("Усі меблі завантажено!");
-        }
+        smoothScrollLoadMore();
+        lastPageMessage(filteredData);
 
     } catch (error) {
         errorMessage(`Помилка при завантаженні додаткових меблів: ${error}`);
     } finally {
         hideLoader();
-    }
-}
-
-
-function scrollToNewItems() {
-    const lastItem = refs.furnitures.lastElementChild;
-    if (lastItem) {
-        lastItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
