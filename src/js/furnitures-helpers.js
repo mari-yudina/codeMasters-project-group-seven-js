@@ -2,6 +2,8 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 import refs from "./refs";
+import cautionIcon from '../img/icons/caution.svg';
+import errorIcon from '../img/icons/error.svg';
 
 export function clearFilterBtn() {
     refs.categoriesTumbs.forEach(btn =>
@@ -9,31 +11,19 @@ export function clearFilterBtn() {
     );
 }
 
-export function hidden(furnitures) {
-    const { page, limit, totalItems } = furnitures;
-
-    if (page * limit < totalItems) {
-        refs.loadMore.classList.remove('is-hidden');
-    } else {
-        refs.loadMore.classList.add('is-hidden');
-
-    }
-}
-
-
-
 export function showLoader() {
     refs.spinner.classList.remove('loader-box-hidden');
-};
+    hideLoadMoreButton()
+}
 
 export function hideLoader() {
     refs.spinner.classList.add('loader-box-hidden');
-};
+}
 
 export function warningMessage(message) {
     iziToast.warning({
         messageColor: '#fff',
-        iconUrl: caution,
+        iconUrl: cautionIcon,
         iconColor: '#ffffffff',
         maxWidth: '350px',
         position: 'topRight',
@@ -46,7 +36,7 @@ export function errorMessage(message) {
         messageColor: '#fff',
         iconColor: '#fff',
         maxWidth: '350px',
-        iconUrl: errorMessage,
+        iconUrl: errorIcon,
         position: 'topRight',
         color: '#ef4040',
         message
@@ -54,4 +44,33 @@ export function errorMessage(message) {
 }
 
 
+export function smoothScrollLoadMore() {
+    const galleryCard = document.querySelector('.furnitures__item');
+
+    if (!galleryCard) return;
+
+    const cardHeight = galleryCard.getBoundingClientRect().height;
+
+    window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth'
+    });
+}
+
+export function lastPageMessage(data) {
+    if (Number(data.page) * Number(data.limit) >= data.totalItems) {
+        warningMessage("Усі меблі завантажено!");
+        hideLoadMoreButton();
+    } else {
+        showLoadMoreButton();
+    }
+}
+
+
+export function showLoadMoreButton() {
+    refs.loadMoreBtn.classList.remove('is-hidden');
+};
+export function hideLoadMoreButton() {
+    refs.loadMoreBtn.classList.add('is-hidden');
+};
 
