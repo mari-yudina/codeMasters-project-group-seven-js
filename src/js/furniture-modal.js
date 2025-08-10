@@ -1,6 +1,7 @@
 import { furnitureModalMarkup } from "./render-functions";
 import refs from "./refs";
 import { data } from "./furniture-data";
+import { openOrderModal } from './order-modal';
 
 
 
@@ -51,3 +52,15 @@ function handleEscKey(event) {
         closeModal()
     };
 }
+
+refs.modalFurniture.addEventListener('click', event => {
+    const btn = event.target.closest('.modal-furniture__btn');
+    if (!btn) return;
+
+    const modelId = btn.dataset.modelId;
+    const color = btn.dataset.color;
+
+    openOrderModal(modelId, color);
+
+    closeModal();
+});
