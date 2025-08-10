@@ -20,7 +20,7 @@
 .modal__content {
   position: relative;
   width: 90%;
-  max-width: 800px;
+  max-width: 1090px;
   max-height: 90vh;
   padding: 2rem;
 
@@ -35,25 +35,18 @@
 
 .modal__close-btn {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-
+  top: 12px;
+  right: 12px;
+  font-size: 1.5rem;
   background: none;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.modal__close-btn::after {
-  content: '✕';
-
-  font-size: 1.5rem;
-  color: #2d3748;
-  transition: color 0.3s ease;
-}
-
-.modal__close-btn:hover::after {
-  color: #721215;
+.modal__close-btn:hover,
+.modal__close-btn:focus {
+  color: #000000;
 }
 
 .modal-furniture {
@@ -62,16 +55,33 @@
   flex-direction: column;
 }
 
-/* .modal-furniture__img-list {
+.furniture-gallery {
   display: flex;
-  flex-wrap: wrap;
-} */
+  flex-direction: column;
+  gap: 16px;
+}
 
-.modal-furniture__img {
-  height: 100px;
-  object-fit: contain;
+.gallery-item.small {
+  display: flex;
+  gap: 16px;
+}
+
+.gallery-item.small img {
+  min-height: 197px;
+}
+.gallery-item.big img {
+  min-height: 297px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
   border-radius: 8px;
-  background: #f8f9fa;
+  object-fit: cover;
+}
+
+.modal-furniture__content {
+  padding-top: 24px;
 }
 
 .modal-furniture__title {
@@ -102,7 +112,7 @@
 .modal-furniture__color-title {
   margin-bottom: 8px;
 }
-.furnitures__colors-list {
+.modal__furnitures__colors__item {
   margin-bottom: 24px;
 }
 
@@ -160,8 +170,9 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid #ccc;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .color-radio__input:checked + .color-radio__circle {
@@ -175,22 +186,27 @@
   height: 100vh;
 }
 
-/* ------------------------------------------- */
-
-.furniture-gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 20px;
+@media screen and (min-width: 768px) {
+  .modal-furniture__btn {
+    width: 310px;
+  }
 }
+@media screen and (min-width: 1440px) {
+  .modal-furniture {
+    flex-direction: row;
+    gap: 24px;
+  }
+  .furniture-gallery {
+    width: 580px;
+  }
 
-.gallery-item.big {
-  grid-column: 1 / -1;
-}
+  .gallery-item.big img {
+    width: 580px;
+    height: 308px;
+  }
 
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
+  .gallery-item.small img {
+    width: 305px;
+    height: 197px;
+  }
 }
