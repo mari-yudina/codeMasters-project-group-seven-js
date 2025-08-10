@@ -69,10 +69,6 @@
   align-items: center;
 }
 
-.star.filled {
-  color: aqua;
-}
-
 .swiper-pagination {
   grid-column: 2;
   margin-top: 12px;
