@@ -22,7 +22,7 @@ async function fetchFurnitures() {
     const markupTwo = furnitures
       .map(
         item => `
-      <div class="furniture-card swiper-slide">
+      <li class="furniture-card swiper-slide">
       <div class = "furniture-card-box-img">
         <img class = "furniture-card-img" src="${item.images[1]}" alt="${
           item.name
@@ -46,7 +46,7 @@ async function fetchFurnitures() {
         </div>
         <p>${item.price * 42} грн</p></div>
         <button class = "btn__furniture-details-modal" type = "button">Детальніше</button>
-      </div>
+      </li>
     `
       )
       .join('');
