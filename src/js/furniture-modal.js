@@ -13,12 +13,12 @@ refs.modal.addEventListener("click", (event) => {
 
 
 export async function openModal(event) {
+
+    if (!event.target.classList.contains("furnitures__details-btn")) {
+        return;
+    }
     document.body.classList.add('body--no-scroll');
-
-    const btn = event.target.closest('.furnitures__details-btn');
-    if (!btn) return;
-
-    const furnitureItem = btn.closest('.furnitures__item');
+    const furnitureItem = event.target.closest('.furnitures__item');
     if (!furnitureItem) return;
 
     const currentFurniture = furnitureItem.dataset.id;
