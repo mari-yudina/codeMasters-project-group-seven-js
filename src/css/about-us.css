@@ -4,18 +4,18 @@
   background-color: #f0e6e6;
 }
 
-.about-us-title {
-  margin-bottom: 24px;
-}
-
 .about-us-text {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
   color: #080c09;
+  width: 100%;
 }
 
 .about-us-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   margin-bottom: 24px;
 }
 
@@ -41,13 +41,11 @@
   }
 
   .about-us-text-wrapper {
-    padding-top: 119px;
-    padding-bottom: 119px;
+    justify-content: center;
   }
 
   .about-us-container {
     display: flex;
-
     justify-content: space-between;
     gap: 24px;
   }
