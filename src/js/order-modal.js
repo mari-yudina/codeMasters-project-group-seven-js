@@ -9,11 +9,6 @@ const form = modal.querySelector('.order-modal__form');
 let currentModelId = null;
 let currentColor = null;
 
-/**
- * Відкрити модалку замовлення
- * @param {string} modelId
- * @param {string} color
- */
 export function openOrderModal(modelId, color) {
   currentModelId = modelId;
   currentColor = color;
@@ -28,14 +23,12 @@ function closeOrderModal() {
   form.reset();
 }
 
-// Закриття модалки
 closeBtn.addEventListener('click', closeOrderModal);
 overlay.addEventListener('click', closeOrderModal);
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeOrderModal();
 });
 
-// Сабміт форми
 form.addEventListener('submit', async e => {
   e.preventDefault();
 
@@ -92,7 +85,7 @@ form.addEventListener('submit', async e => {
   }
 });
 
-// ====  слухач на Дімину кнопку ====
+// Делегування кліку на кнопку "Перейти до замовлення"
 document.addEventListener('click', e => {
   const btn = e.target.closest('.modal-furniture__btn');
   if (!btn) return;
@@ -100,15 +93,14 @@ document.addEventListener('click', e => {
   const modelId = btn.dataset.modelId || null;
   const color = btn.dataset.color || null;
 
-  // Закриваємо модалку Дімона
-  const productModal = btn.closest('.modal');
-  if (productModal) {
-    productModal.classList.remove('is-open'); // якщо в нього такий клас
-    productModal.style.display = 'none'; // резервний варіант
-    document.body.classList.remove('modal-open');
-  }
+  // Закриваємо меблеву модалку
+  const openModals = document.querySelectorAll('.modal.modal--is-open');
+  openModals.forEach(modalEl => {
+    modalEl.classList.remove('modal--is-open');
+    document.body.classList.remove('body--no-scroll');
+  });
 
-  // Відкриваємо  модалку
+  // Відкриваємо order-modal
   openOrderModal(modelId, color);
 });
 
