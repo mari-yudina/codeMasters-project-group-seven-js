@@ -1,66 +1,94 @@
-import Swiper from 'swiper';
-import 'swiper/css';
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
+import getFeedback from './feedback-api.js';
 
-async function loadFeedbacks() {
-  const res = await fetch('/feedbacks?page=1&limit=10');
-  const data = await res.json();
+const feedbackList = document.querySelector('#feedback-list');
 
-  const wrapper = document.getElementById('feedback-list');
-  wrapper.innerHTML = data.feedbacks
-    .map(feedback => {
-      const roundedRate = roundRate(feedback.rate);
-      return `
-        <li class="swiper-slide">
-          <div class="feedback-card">
-            <div class="feedback-stars">
-              ${renderStars(roundedRate)}
-            </div>
-            <p class="feedback-text">"${feedback.descr}"</p>
-            <p class="feedback-author">${feedback.name}</p>
-          </div>
-        </li>
-      `;
-    })
-    .join('');
+export async function loadFeedbacks() {
+  try {
+    const response = await getFeedback();
+    const feedbacks = response?.feedbacks || [];
 
-  initSwiper();
-}
+    const limitedFeedbacks = feedbacks.slice(0, 10);
 
-function roundRate(rate) {
-  if (rate >= 3.3 && rate <= 3.7) return 3.5;
-  if (rate >= 3.8 && rate <= 4.2) return 4;
-  return Math.round(rate * 2) / 2;
-}
-
-function renderStars(rate) {
-  const fullStars = Math.floor(rate);
-  const halfStar = rate % 1 !== 0 ? 1 : 0;
-  const emptyStars = 5 - fullStars - halfStar;
-
-  return `
-    ${'<svg class="star full"><use href="./img/sprite.svg#icon-star-full"></use></svg>'.repeat(fullStars)}
-    ${halfStar ? '<svg class="star half"><use href="./img/sprite.svg#icon-star-half"></use></svg>' : ''}
-    ${'<svg class="star empty"><use href="./img/sprite.svg#icon-star-empty"></use></svg>'.repeat(emptyStars)}
-  `;
-}
-
-function initSwiper() {
-  new Swiper('.feedback-swiper', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    },
-    navigation: {
-      nextEl: '#feedback-next',
-      prevEl: '#feedback-prev'
-    },
-    breakpoints: {
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 }
+    if (!limitedFeedbacks.length) {
+      feedbackList.innerHTML = '<li class="swiper-slide">Відгуків поки немає.</li>';
+      return;
     }
-  });
+
+    const markup = limitedFeedbacks.map(item => `
+      <li class="swiper-slide feedback-item">
+        <div class="feedback-card">
+          <div class="feedback-stars">
+            ${createStarRating(item.rate)}
+          </div>
+          <p class="feedback-text">"${item.descr}"</p>
+          <h3 class="feedback-author">${item.name}</h3>
+        </div>
+      </li>
+    `).join('');
+
+    feedbackList.innerHTML = markup;
+
+    new Swiper('.feedback-swiper', {
+      loop: false,
+      spaceBetween: 20,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: '#feedback-next',
+        prevEl: '#feedback-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+
+  } catch (err) {
+    console.error('Помилка завантаження відгуків:', err);
+    feedbackList.innerHTML = '<li class="swiper-slide">Не вдалося завантажити відгуки.</li>';
+  }
+}
+
+function createStarRating(rate) {
+    const maxStars = 5;
+    const spritePath = './img/sprite.svg#icon-star';
+  let starsMarkup = '';
+
+  for (let i = 1; i <= maxStars; i++) {
+    let fillPercent = 0;
+
+    if (rate >= i) {
+      fillPercent = 100;
+    } else if (rate > i - 1 && rate < i) {
+      fillPercent = (rate - (i - 1)) * 100;
+    }
+
+    const uniqueId = Math.random().toString(36).slice(2, 8);
+const clipId = `clip-star-${i}-${uniqueId}`;
+
+    starsMarkup += `
+      <svg class="star" width="21" height="21" aria-hidden="true" focusable="false" viewBox="0 0 24 24" style="vertical-align: middle;">
+        <defs>
+          <clipPath id="${clipId}">
+            <rect x="0" y="0" width="${fillPercent}%" height="100%"></rect>
+          </clipPath>
+        </defs>
+        <!-- gray star background -->
+        <use xlink:href="${spritePath}" fill="#e6e6e6"></use>
+        <!-- colored star clipped by fillPercent -->
+        <use xlink:href="${spritePath}" fill="black" clip-path="url(#${clipId})"></use>
+      </svg>`;
+  }
+  return starsMarkup;
 }
 
 loadFeedbacks();
