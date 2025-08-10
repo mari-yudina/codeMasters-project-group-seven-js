@@ -1,4 +1,17 @@
 /* --------------------------------------------categories----------------- */
+.our-furnitures {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.our-furnitures__title {
+  margin-bottom: 16px;
+}
+
+.our-furnitures__subtitle {
+  margin-bottom: 40px;
+}
+
 .our-furnitures__categories {
   display: flex;
   flex-wrap: wrap;
