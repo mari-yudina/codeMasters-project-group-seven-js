@@ -5,7 +5,6 @@ import { hideLoader, showLoader, errorMessage, showLoadMoreButton, lastPageMessa
 import { categoriesItemRender, furnituresCardMarkup } from "./render-functions";
 import refs from "./refs";
 import { data } from "./furniture-data";
-import { getFeedback } from "./feedback-api";
 
 
 
@@ -17,8 +16,6 @@ refs.loadMoreBtn.addEventListener('click', onLoadMore);
 async function initPage() {
     showLoader();
     try {
-        const feed = await getFeedback();
-
         const categoryList = await getCategoryList();
         const allCategories = [{ _id: 1, name: 'Всі товари' }, ...categoryList];
         categoriesItemRender(allCategories);
