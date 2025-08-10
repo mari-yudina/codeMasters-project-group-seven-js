@@ -53,8 +53,9 @@
        color: #1a1a1a;
    }
    .icon-btm-svg {
-   
+  
    stroke: #0c0c0c;
+   
  }
 
    .mobile-menu {
@@ -76,6 +77,7 @@
    }
 
    .mobile-close-btn {
+    display: inline-block;
        align-self: flex-end;
        font-size: 24px;
        background: none;
@@ -83,11 +85,13 @@
        cursor: pointer;
        color: #1a1a1a;
        margin-bottom: 20px;
+    
    }
    
  .menu-icon-close {
+    display: inline-block;
+     stroke: #0c0c0c;
     
-     color: #0c0c0c;
  }
 
    .mobile-nav {
