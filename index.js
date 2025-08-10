@@ -91,5 +91,5 @@ import{i as u,a as g,S as T,A as H}from"./assets/vendor-CNNTdrxc.js";(function()
         <p>${c.price*42} грн</p></div>
         <button class = "btn__furniture-details-modal" type = "button">Детальніше</button>
       </li>
-    `).join("");s.innerHTML=a;const l=new Swiper(".mySwiper",{slidesPerView:1.2,spaceBetween:16,pagination:{el:".swiper-pagination",dynamicBullets:!0},navigation:{nextEl:".btn-right",prevEl:".btn-left",disabledClass:"swiper-button-disabled"},breakpoints:{768:{slidesPerView:2,spaceBetween:24},1440:{slidesPerView:4,spaceBetween:24}}})}catch(e){console.error("Помилка запиту:",e.message)}}ne();document.addEventListener("DOMContentLoaded",()=>{new H(".accordion-container",{duration:300,showMultiple:!1,openOnInit:[]})});
+    `).join("");s.innerHTML=a;const l=new Swiper(".mySwiper",{slidesPerView:1,spaceBetween:16,pagination:{el:".swiper-pagination",dynamicBullets:!0},navigation:{nextEl:".btn-right",prevEl:".btn-left",disabledClass:"swiper-button-disabled"},breakpoints:{768:{slidesPerView:2,spaceBetween:24},1440:{slidesPerView:4,spaceBetween:24}}})}catch(e){console.error("Помилка запиту:",e.message)}}ne();document.addEventListener("DOMContentLoaded",()=>{new H(".accordion-container",{duration:300,showMultiple:!1,openOnInit:[]})});
 //# sourceMappingURL=index.js.map
