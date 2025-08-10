@@ -4,10 +4,6 @@ html {
 
 body {
   font-family: Raleway, sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-width: 100vw;
-  min-height: 100vh;
-  margin: 0;
+
   background-color: #fff;
 }

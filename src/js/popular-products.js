@@ -1,4 +1,6 @@
 import axios from 'axios';
+import Swiper from 'swiper';
+import 'swiper/css';
 
 async function fetchFurnitures() {
   try {
