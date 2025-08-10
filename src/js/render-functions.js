@@ -17,10 +17,10 @@ export function furnituresCardMarkup(arr) {
         `
             <li class="furnitures__item" data-id="${_id}">
                 <img class="furnitures__image" src="${images[0]}" alt="${name}" height="277"/>
-                <p class="furnitures__title">${name}</p>
+                <p class="furnitures__card-title">${name}</p>
                 <ul class="furnitures__colors-list furnitures__colors-list__card">${furnitureCardColorListMarkup(color)}</ul>
                 <p class="furnitures__price">${price} грн</p>
-                <button class="btn furnitures__details-btn">Детальніше</button>
+                <button class="btn btn__furniture-details-modal furnitures__details-btn">Детальніше</button>
             </li>
         `
     ).join('');

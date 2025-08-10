@@ -44,7 +44,7 @@
   transition: all 0.3s ease;
 }
 
-.modal__close-btn::after {
+/* .modal__close-btn::after {
   content: '✕';
 
   font-size: 1.5rem;
@@ -54,18 +54,13 @@
 
 .modal__close-btn:hover::after {
   color: #721215;
-}
+} */
 
 .modal-furniture {
   position: relative;
   display: flex;
   flex-direction: column;
 }
-
-/* .modal-furniture__img-list {
-  display: flex;
-  flex-wrap: wrap;
-} */
 
 .modal-furniture__img {
   height: 100px;
@@ -102,7 +97,7 @@
 .modal-furniture__color-title {
   margin-bottom: 8px;
 }
-.furnitures__colors-list {
+.modal__furnitures__colors__item {
   margin-bottom: 24px;
 }
 
