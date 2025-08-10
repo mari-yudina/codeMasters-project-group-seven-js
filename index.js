@@ -61,7 +61,7 @@ import{i as u,a as p,A}from"./assets/vendor-Dbsn9Tl2.js";(function(){const t=doc
                 <div class="furnitures__colors__item" style="background-color: ${t};"></div>
             </li>
         `).join("")}let d=1,l=null;async function Q(e){var n;const t=e.target.closest("li");if(!t)return;const s=t.querySelector(".categories__thumb");if(!s.classList.contains("categories__thumb--active")){d=1,m.length=0,L(),K(),s.classList.add("categories__thumb--active"),l=((n=t.querySelector(".categories__item__name"))==null?void 0:n.dataset.id)||null;try{const r=l&&l!=="1"?await F(l,d):await $(d);if(r.furnitures.length===0){E("Sorry, there are no furnitures.");return}i.furnitures.innerHTML=k(r.furnitures),m.push(...r.furnitures),S(r)}catch(r){w(`Помилка при завантаженні меблів по категоріях: ${r}`)}finally{v()}}}async function X(){d++,L();try{const e=l&&l!=="1"?await F(l,d):await $(d);if(e.furnitures.length===0){E("Sorry, there are no furnitures.");return}i.furnitures.insertAdjacentHTML("beforeend",k(e.furnitures)),m.push(...e.furnitures),U(),S(e)}catch(e){w(`Помилка при завантаженні додаткових меблів: ${e}`)}finally{v()}}const Y=async(e=1)=>{const t=await p.get("https://furniture-store.b.goit.study/api/feedbacks");return console.log(t.data),t.data};i.categories.addEventListener("click",Q);i.furnitures.addEventListener("click",N);i.loadMoreBtn.addEventListener("click",X);async function ee(){L();try{const e=await Y(),t=await D(),s=[{_id:1,name:"Всі товари"},...t];G(s)}catch(e){w(`Помилка при отриманні категорій: ${e}`)}finally{v()}te()}async function te(){L();try{const e=await $();m.push(...e.furnitures),i.furnitures.innerHTML=k(e.furnitures),S(e)}catch(e){w(`Помилка при отриманні меблів: ${e}`)}finally{v()}}ee();async function re(){try{const{data:e}=await p.get("https://furniture-store.b.goit.study/api/furnitures?type=popular");console.log("Меблі:",e);const{furnitures:t,totalItems:s,page:n,limit:r}=e;console.log("Меблі:",t),console.log("Всього товарів:",s),console.log("Сторінка:",n),console.log("Ліміт:",r);const o=document.querySelector(".swiper-wrapper"),a=t.map(c=>`
-      <div class="furniture-card swiper-slide">
+      <li class="furniture-card swiper-slide">
       <div class = "furniture-card-box-img">
         <img class = "furniture-card-img" src="${c.images[1]}" alt="${c.name}"
 
@@ -77,6 +77,6 @@ import{i as u,a as p,A}from"./assets/vendor-Dbsn9Tl2.js";(function(){const t=doc
         </div>
         <p>${c.price*42} грн</p></div>
         <button class = "btn__furniture-details-modal" type = "button">Детальніше</button>
-      </div>
+      </li>
     `).join("");o.innerHTML=a;const h=new Swiper(".mySwiper",{slidesPerView:1.2,spaceBetween:16,pagination:{el:".swiper-pagination",dynamicBullets:!0},navigation:{nextEl:".btn-right",prevEl:".btn-left",disabledClass:"swiper-button-disabled"},breakpoints:{768:{slidesPerView:2,spaceBetween:24},1440:{slidesPerView:4,spaceBetween:24}}})}catch(e){console.error("Помилка запиту:",e.message)}}re();document.addEventListener("DOMContentLoaded",()=>{new A(".accordion-container",{duration:300,showMultiple:!1,openOnInit:[]})});
 //# sourceMappingURL=index.js.map
