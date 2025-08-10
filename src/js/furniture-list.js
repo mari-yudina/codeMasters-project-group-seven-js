@@ -1,20 +1,24 @@
 import { openModal } from "./furniture-modal";
 import { getCategoryList, getFurnitures } from "./furnitures-api";
 import { handlerCategoriesFilter, onLoadMore } from "./furnitures-handlers";
-import { hideLoader, showLoader, warningMessage, errorMessage } from "./furnitures-helpers";
+import { hideLoader, showLoader, errorMessage, showLoadMoreButton, lastPageMessage } from "./furnitures-helpers";
 import { categoriesItemRender, furnituresCardMarkup } from "./render-functions";
 import refs from "./refs";
 import { data } from "./furniture-data";
+import { getFeedback } from "./feedback-api";
+
 
 
 
 refs.categories.addEventListener('click', handlerCategoriesFilter);
 refs.furnitures.addEventListener('click', openModal);
-refs.loadMore.addEventListener('click', onLoadMore);
+refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 async function initPage() {
     showLoader();
     try {
+        const feed = await getFeedback();
+
         const categoryList = await getCategoryList();
         const allCategories = [{ _id: 1, name: 'Всі товари' }, ...categoryList];
         categoriesItemRender(allCategories);
@@ -33,8 +37,8 @@ async function initFurnitures() {
     try {
         const furnitures = await getFurnitures();
         data.push(...furnitures.furnitures);
-        console.log('data', data);
         refs.furnitures.innerHTML = furnituresCardMarkup(furnitures.furnitures);
+        lastPageMessage(furnitures);
     } catch (error) {
         errorMessage(`Помилка при отриманні меблів: ${error}`)
     } finally {
