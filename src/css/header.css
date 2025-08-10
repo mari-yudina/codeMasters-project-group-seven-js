@@ -52,6 +52,10 @@
        cursor: pointer;
        color: #1a1a1a;
    }
+   .icon-btm-svg {
+   
+   stroke: #0c0c0c;
+ }
 
    .mobile-menu {
        position: fixed;
@@ -80,6 +84,11 @@
        color: #1a1a1a;
        margin-bottom: 20px;
    }
+   
+ .menu-icon-close {
+    
+     color: #0c0c0c;
+ }
 
    .mobile-nav {
        display: flex;
