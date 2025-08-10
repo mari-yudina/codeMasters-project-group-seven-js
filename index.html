@@ -10,9 +10,9 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <script type="module" crossorigin src="/codeMasters-project-group-seven-js/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/codeMasters-project-group-seven-js/assets/vendor-CyHMW-y7.js">
+    <link rel="modulepreload" crossorigin href="/codeMasters-project-group-seven-js/assets/vendor-Cl-WcV8j.js">
     <link rel="stylesheet" crossorigin href="/codeMasters-project-group-seven-js/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/codeMasters-project-group-seven-js/assets/index-DI_Ioobt.css">
+    <link rel="stylesheet" crossorigin href="/codeMasters-project-group-seven-js/assets/index-BjKmKLRm.css">
   </head>
   <body id="top">
     <header class="header">
@@ -477,12 +477,8 @@
       
       <div class="modal">
     <div class="modal__content">
-        <button class="modal__close-btn" type="button"></button>
+        <button class="modal__close-btn" type="button" aria-label="Закрити модалку"></button>
         <div class="modal-furniture"></div>
-        <button class=" btn modal-furniture__btn" type="button">
-            Перейти до замовлення
-        </button>
-
     </div>
 </div>
       <div class="order-modal is-hidden" id="orderModal">
@@ -503,7 +499,7 @@
 
             <label class="order-modal__label">Телефон*
                 <input type="tel" name="phone" class="order-modal__input form-input" placeholder="+38(099)123 22 11"
-                    required pattern="^\+380\d{9}$" title="Format: +380-XX-XXX-XX-XX" />
+                    required pattern="^[0-9]{12}$" title="Format: +380-XX-XXX-XX-XX" />
             </label>
 
             <label class="order-modal__label">Коментар
