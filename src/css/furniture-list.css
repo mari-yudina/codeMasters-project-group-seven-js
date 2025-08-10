@@ -26,7 +26,6 @@
 
   &:hover,
   &:focus {
-    border: 3px solid #7a0508;
     box-shadow: 0 4px 12px rgba(255, 107, 10, 0.1);
   }
 
