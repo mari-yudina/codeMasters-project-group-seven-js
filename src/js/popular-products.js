@@ -54,7 +54,7 @@ async function fetchFurnitures() {
     listTwo.innerHTML = markupTwo;
 
     const swiper = new Swiper('.mySwiper', {
-      slidesPerView: 1.2, // стартова кількість карток
+      slidesPerView: 1, // стартова кількість карток
       spaceBetween: 16, // відстань між картками
       pagination: {
         el: '.swiper-pagination',
