@@ -1,6 +1,6 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
-import getFeedback from './feedback-api.js';
+import {getFeedback} from './feedback-api.js';
 
 const feedbackList = document.querySelector('#feedback-list');
 
