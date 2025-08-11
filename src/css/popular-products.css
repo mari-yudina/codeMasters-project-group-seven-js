@@ -47,10 +47,7 @@
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.box-btn {
-  display: flex;
-  justify-content: space-between;
-}
+
 .box__btn-list {
   display: flex;
   flex-direction: row;
@@ -83,6 +80,7 @@
 .btn-swiper:focus {
   background-color: #975052;
   color: #fff;
+  fill: #fff;
 }
 .btn__furniture-details-modal:active,
 .btn-swiper:active {
@@ -92,6 +90,7 @@
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
 
   background: #6b0609;
+  fill: #fff;
 }
 
 .btn-swiper {
@@ -135,13 +134,33 @@
 
 .swiper-pagination-bullet-active {
   background-color: #6b0609;
-  opacity: 80%; /* цвет активной точки */
+  opacity: 80%;
+  width: 8px; /* цвет активной точки */
 }
 
-.swiper-pagination {
-  position: static !important;
-  /* flex: 1 1 auto; */
+.box-btn {
+  display: flex;
+  justify-content: space-between;
 }
+
+
+ .popular__products-swiper.swiper-pagination {
+     position: static !important;
+    
+    
+
+
+  width: auto !important;
+  transform: none !important;
+  display: inline-block;
+  /*margin: 0 !important; bottom: auto !important;top: auto !important; left: auto !important;  right: auto !important;*/
+ 
+  
+  
+    
+}  
+
+
 
 /*
 .swiper-slide {
