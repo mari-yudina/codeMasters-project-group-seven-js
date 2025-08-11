@@ -1,0 +1,101 @@
+.feedback-title {
+  font-size: 24px;
+  margin: 0 0 8px;
+}
+.feedback-subtitle {
+  color: #666;
+  margin: 0 0 20px;
+}
+
+.feedback-swiper {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.feedback-swiper .swiper-wrapper {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.feedback-card {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.feedback-text {
+  margin: 12px 0;
+  color: #333;
+}
+.feedback-meta {
+  font-size: 13px;
+  color: #777;
+}
+
+/* nav buttons */
+.feedback-nav {
+  background: transparent;
+  border: 1px solid #ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.feedback-nav.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* stars */
+.star {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.feedback-stars {
+  display: flex;
+  align-items: center;
+}
+
+.star.filled {
+  color: aqua;
+}
+
+.swiper-pagination {
+  grid-column: 2;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.my-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 4px;
+  opacity: 0.5;
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+.my-bullet-active {
+  background-color: #454444;
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .feedback-swiper {
+    grid-template-columns: auto 1fr auto;
+  }
+}

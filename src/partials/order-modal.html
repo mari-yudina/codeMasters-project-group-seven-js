@@ -1,0 +1,30 @@
+<div class="order-modal is-hidden" id="orderModal">
+    <div class="order-modal__overlay" data-close-modal></div>
+    <div class="order-modal__content" role="dialog" aria-modal="true" aria-labelledby="order-modal-title">
+
+        <button class="order-modal__close" type="button" aria-label="Закрити" data-close-modal>
+            &times;
+        </button>
+
+        <h2 class="order-modal__title" id="order-modal-title">Замовити зворотний зв’язок</h2>
+
+        <form class="order-modal__form" id="orderForm" autocomplete="off" novalidate>
+            <label class="order-modal__label">Пошта*
+                <input class="order-modal__input form-input" type="email" name="email" placeholder="Пошта" required
+                    pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,})\.([A-z]{2,8})" title="Format: name@example.com" />
+            </label>
+
+            <label class="order-modal__label">Телефон*
+                <input type="tel" name="phone" class="order-modal__input form-input" placeholder="380991232211" required
+                    pattern="^[0-9]{12}$" title="Format: 380XXXXXXXXX" />
+            </label>
+
+            <label class="order-modal__label">Коментар
+                <textarea name="comment" placeholder="Коментар" class="order-modal__textarea"></textarea>
+            </label>
+
+            <button type="submit" class="order-modal__submit form-input">Надіслати заявку</button>
+        </form>
+
+    </div>
+</div>
