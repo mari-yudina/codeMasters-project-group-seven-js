@@ -14,12 +14,13 @@ refs.modal.addEventListener("click", (event) => {
 
 export async function openModal(event) {
 
-    if (!event.target.classList.contains("furnitures__details-btn")) {
-        return;
-    }
-    document.body.classList.add('body--no-scroll');
-    const furnitureItem = event.target.closest('.furnitures__item');
+    const btn = event.target.closest('.furnitures__details-btn');
+    if (!btn) return;
+
+    const furnitureItem = btn.closest('.furnitures__item');
     if (!furnitureItem) return;
+
+    document.body.classList.add('body--no-scroll');
 
     const currentFurniture = furnitureItem.dataset.id;
     const furniture = data.find(({ _id }) => _id === currentFurniture);
@@ -47,7 +48,7 @@ export function closeModal() {
 
 }
 
-function handleEscKey(event) {
+export function handleEscKey(event) {
     if (event.key === "Escape") {
         closeModal()
     };
