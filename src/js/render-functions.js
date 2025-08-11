@@ -19,8 +19,8 @@ export function furnituresCardMarkup(arr) {
                 <img class="furnitures__image" src="${images[0]}" alt="${name}" height="277"/>
                 <p class="furnitures__card-title">${name}</p>
                 <ul class="furnitures__colors-list furnitures__colors-list__card">${furnitureCardColorListMarkup(color)}</ul>
-                <p class="furnitures__price">${price} грн</p>
-                <button class="btn furnitures__details-btn">Детальніше</button>
+                <p class="furnitures__price">${price * 42} грн</p>
+                <button class="btn btn__furniture-details-modal furnitures__details-btn">Детальніше</button>
             </li>
         `
     ).join('');
@@ -34,7 +34,7 @@ export function furnitureModalMarkup({ _id, name, images, description, price, co
         <div class="modal-furniture__content data-id="${_id}">
             <p class="modal-furniture__title">${name}</p>
             <p class="modal-furniture__category">${category.name}</p>
-            <p class="modal-furniture__price">${price} грн</p>
+            <p class="modal-furniture__price">${price * 42} грн</p>
             <div class="modal-furniture__rate">
                 <span class="rating" data-rate="${rate}">★★★★★</span>
             </div>
@@ -42,6 +42,10 @@ export function furnitureModalMarkup({ _id, name, images, description, price, co
             <ul class="furnitures__colors-list">${modalColorListMarkup(color)}</ul>
             <p class="modal-furniture__description">${description}</p>
             <p class="modal-furniture__sizes">Розміри: ${sizes}</p>
+             <button class=" btn modal-furniture__btn" type="button" data-model-id="${_id}" 
+        data-color="${color && color.length > 0 ? color[0] : ''}">
+            Перейти до замовлення
+        </button>
         </div>
   `;
 }
@@ -83,11 +87,20 @@ function renderFurnitureGallery(images) {
         <img src="${images[0]}" alt="Велике фото">
       </li>
       <li class="gallery-item small">
-        <img src="${images[1]}" alt="Мале фото 1">
-      </li>
-      <li class="gallery-item small">
-        <img src="${images[2]}" alt="Мале фото 2">
+            <div class="gallery-item-thumb">
+                <img src="${images[1]}" alt="Мале фото 1">
+            </div>
+            <div class="gallery-item-thumb">
+                <img src="${images[2]}" alt="Мале фото 2">
+            </div>
       </li>
     </ul>
   `;
 }
+
+// {/* <li class="gallery-item small">
+//         <img src="${images[1]}" alt="Мале фото 1">
+//       </li>
+//       <li class="gallery-item small">
+//         <img src="${images[2]}" alt="Мале фото 2">
+//       </li> */}

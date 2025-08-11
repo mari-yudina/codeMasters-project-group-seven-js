@@ -1,6 +1,4 @@
-.header {
-  padding: 17px 0;
-}
+
 
 .nav {
   display: flex;
@@ -14,9 +12,18 @@
   justify-content: center;
 }
 
+
+   .nav {
+
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
+
 .nav-list {
   display: none;
 }
+
 
 .nav-link {
   position: relative;
@@ -68,6 +75,72 @@
   transition: transform 0.3s ease;
 }
 
+
+   .burger-btn {
+       display: flex;
+       font-size: 28px;
+       background: none;
+       border: none;
+       cursor: pointer;
+       color: #1a1a1a;
+       align-items: center;
+       justify-content: center;
+   }
+   .container.mobilka {
+position: relative
+   }
+
+   .icon-btm-svg {
+  
+   stroke: #0c0c0c;
+   
+ }
+
+   .mobile-menu { 
+    overflow: hidden;
+    overscroll-behavior: contain;
+    
+        touch-action: none;
+       position: absolute;
+       top: 0;
+       right: 0;
+       width: 100%;
+       height: 100vh;
+       background-color: #fff;
+       display: none;
+       flex-direction: column;
+       padding: 30px 20px;
+       z-index: 1000;
+       transition: transform 0.3s ease;
+      
+ 
+   }
+
+
+   .mobile-menu.is-open {
+       display: flex;
+        transform: scaleY(1);
+            opacity: 1;
+      
+   }
+
+   .mobile-close-btn {
+    display: inline-block;
+       align-self: flex-end;
+       font-size: 24px;
+       background: none;
+       border: none;
+       cursor: pointer;
+       color: #1a1a1a;
+    
+   }
+   
+ .menu-icon-close {
+    display: inline-block;
+     stroke: #0c0c0c;
+    
+ }
+
 .mobile-menu.is-open {
   display: flex;
 }
@@ -99,6 +172,7 @@
   list-style: none;
   margin: 0;
 }
+
 
 .nav-link-mobile {
   font-size: 18px;
@@ -132,6 +206,29 @@
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
 }
 
+
+   .btn-to-shop,
+   .btn-to-shop-one {
+       color: #fff;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       border-radius: 100px;
+       padding: 8px 20px;
+       width: 175px;
+       height: 42px;
+       background: #6b0609;
+       font-weight: 500;
+       text-decoration: none;
+       box-shadow:
+           0 1px 2px 0 rgba(8, 12, 9, 0.05),
+           inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+           inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+           inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+           inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+        transition: background-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+   }
+
 .btn-to-shop:hover,
 .btn-to-shop:focus,
 .btn-to-shop-one:hover,
@@ -139,6 +236,7 @@
   opacity: 0.5;
   background: #6b0609;
 }
+
 
 .no-scroll {
   overflow: hidden;

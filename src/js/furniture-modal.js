@@ -13,13 +13,14 @@ refs.modal.addEventListener("click", (event) => {
 
 
 export async function openModal(event) {
-    document.body.classList.add('body--no-scroll');
 
     const btn = event.target.closest('.furnitures__details-btn');
     if (!btn) return;
 
     const furnitureItem = btn.closest('.furnitures__item');
     if (!furnitureItem) return;
+
+    document.body.classList.add('body--no-scroll');
 
     const currentFurniture = furnitureItem.dataset.id;
     const furniture = data.find(({ _id }) => _id === currentFurniture);
@@ -47,7 +48,7 @@ export function closeModal() {
 
 }
 
-function handleEscKey(event) {
+export function handleEscKey(event) {
     if (event.key === "Escape") {
         closeModal()
     };
