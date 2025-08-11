@@ -1,11 +1,12 @@
 
    .header {
-       padding: 17px 0;
+       padding: 2px 0;
    }
 
    
 
    .nav {
+
        display: flex;
        justify-content: space-between;
        align-items: center;
@@ -45,21 +46,31 @@
    }
 
    .burger-btn {
-       display: block;
+       display: flex;
        font-size: 28px;
        background: none;
        border: none;
        cursor: pointer;
        color: #1a1a1a;
+       align-items: center;
+       justify-content: center;
    }
+   .container.mobilka {
+position: relative
+   }
+
    .icon-btm-svg {
   
    stroke: #0c0c0c;
    
  }
 
-   .mobile-menu {
-       position: fixed;
+   .mobile-menu { 
+    overflow: hidden;
+    overscroll-behavior: contain;
+    
+        touch-action: none;
+       position: absolute;
        top: 0;
        right: 0;
        width: 100%;
@@ -70,10 +81,16 @@
        padding: 30px 20px;
        z-index: 1000;
        transition: transform 0.3s ease;
+      
+ 
    }
+
 
    .mobile-menu.is-open {
        display: flex;
+        transform: scaleY(1);
+            opacity: 1;
+      
    }
 
    .mobile-close-btn {
@@ -84,7 +101,6 @@
        border: none;
        cursor: pointer;
        color: #1a1a1a;
-       margin-bottom: 20px;
     
    }
    
@@ -137,6 +153,7 @@
            inset 0 0 0 1px rgba(8, 12, 9, 0.15),
            inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
            inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+        transition: background-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
    }
 
    .btn-to-shop:hover,
