@@ -1,6 +1,11 @@
 import axios from 'axios';
 import Swiper from 'swiper';
 import 'swiper/css';
+import refs from './refs';
+import { furnitureModalMarkup } from './render-functions';
+import { handleEscKey } from './furniture-modal';
+
+let furnitureData = []
 
 async function fetchFurnitures() {
   try {
@@ -9,6 +14,8 @@ async function fetchFurnitures() {
     );
     console.log('Меблі:', data);
     const { furnitures, totalItems, page, limit } = data;
+
+    furnitureData.push(...furnitures)
 
     console.log('Меблі:', furnitures);
     console.log('Всього товарів:', totalItems);
@@ -24,26 +31,22 @@ async function fetchFurnitures() {
     const markupTwo = furnitures
       .map(
         item => `
-      <li class="furniture-card swiper-slide">
+      <li class="furniture-card swiper-slide" data-id="${item._id}">
       <div class = "furniture-card-box-img">
-        <img class = "furniture-card-img" src="${item.images[1]}" alt="${
-          item.name
-        }"
+        <img class = "furniture-card-img" src="${item.images[1]}" alt="${item.name
+          }"
 
           /></div>
           <div class = "box__product-card-info">
         <p>${item.name}</p>
         <div class = "box__color">
 
-<div class="color" style="background-color: ${
-          item.color[0]
-        }; width: 24px; height: 24px;"></div>
-   <div class="color" style="background-color: ${
-     item.color[1]
-   }; width: 24px; height: 24px;"></div>
-   <div class="color" style="background-color: ${
-     item.color[2]
-   }; width: 24px; height: 24px;"></div>
+<div class="color" style="background-color: ${item.color[0]
+          }; width: 24px; height: 24px;"></div>
+   <div class="color" style="background-color: ${item.color[1]
+          }; width: 24px; height: 24px;"></div>
+   <div class="color" style="background-color: ${item.color[2]
+          }; width: 24px; height: 24px;"></div>
 
         </div>
         <p>${item.price * 42} грн</p></div>
@@ -85,7 +88,42 @@ async function fetchFurnitures() {
 
 fetchFurnitures();
 //--------------------------------------------
+const listTwo = document.querySelector('.swiper-wrapper');
+listTwo.addEventListener('click', openModal);
 
+export async function openModal(event) {
+
+
+  const btn = event.target.closest('.btn__furniture-details-modal');
+  if (!btn) return;
+
+  const furnitureItem = btn.closest('.furniture-card');
+  if (!furnitureItem) return;
+
+  document.body.classList.add('body--no-scroll');
+
+  const currentFurniture = furnitureItem.dataset.id;
+  console.log('currentFurniture', currentFurniture);
+  console.log('furnitureData', furnitureData);
+
+
+  const furniture = furnitureData.find(({ _id }) => _id === currentFurniture);
+
+  console.log('furniture', furniture);
+
+  refs.modalFurniture.innerHTML = furnitureModalMarkup(furniture);
+  refs.modal.classList.add("modal--is-open");
+
+  document.addEventListener("keydown", handleEscKey);
+
+  //-------------------------------------rate
+  document.querySelectorAll('.rating').forEach(el => {
+    const rate = parseFloat(el.dataset.rate);
+    const percent = (rate / 5) * 100;
+    el.style.setProperty('--rating-percent', `${percent}%`);
+  });
+
+}
 //------------------------------------------
 
 // async function fetchFurnituresPopular() {
