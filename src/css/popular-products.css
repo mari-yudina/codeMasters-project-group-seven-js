@@ -83,6 +83,7 @@
 .btn-swiper:focus {
   background-color: #975052;
   color: #fff;
+  fill: #fff;
 }
 .btn__furniture-details-modal:active,
 .btn-swiper:active {
@@ -92,6 +93,7 @@
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
 
   background: #6b0609;
+  fill: #fff;
 }
 
 .btn-swiper {
