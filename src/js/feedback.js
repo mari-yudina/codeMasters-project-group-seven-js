@@ -34,32 +34,41 @@ export async function loadFeedbacks() {
       loop: false,
       spaceBetween: 72,
       slidesPerView: 1,
-      navigation: {
-        nextEl: '#feedback-next',
-        prevEl: '#feedback-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        dynamicBullets: true,
-      },
+
       breakpoints: {
         768: {
           slidesPerView: 2,
+          spaceBetween: 24,
         },
-        1024: {
+        1440: {
           slidesPerView: 3,
+          spaceBetween: 24,
         },
       },
-      on: {
-        init() {
-          toggleButtons(this);
-        },
-        slideChange() {
-          toggleButtons(this);
-        }
+
+        navigation: {
+          nextEl: '#feedback-next',
+          prevEl: '#feedback-prev',
+      },
+        
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          dynamicBullets: true,
+          dynamicMainBullets: 6,
+          watchSlidesProgress: true,
+      },
+        
+        on: {
+          init() {
+            toggleButtons(this);
+          },
+          slideChange() {
+            toggleButtons(this);
+          }
       }
     });
+    
     swiper.pagination.render();
 swiper.pagination.update();
 

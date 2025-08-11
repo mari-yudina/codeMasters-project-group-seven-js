@@ -1,6 +1,6 @@
 .feedback-title {
   font-size: 24px;
-  margin: 64px 0 24px 0;
+  margin-bottom: 24px;
 }
 .feedback-subtitle {
   font-weight: 400;
@@ -17,22 +17,30 @@
 .feedback-card {
   padding-top: 15px;
   padding-left: 15px;
-  background: #ede1e1e7;
-  border: 2px solid #f5e1e1;
+  background: #f0e6e6;
+  outline: 2px solid #f5e1e1;
   border-radius: 8px;
   min-height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 335px;
+  height: 295px;
+  min-width: unset;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.feedback-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .feedback-text {
-  margin: 24px 0;
+  padding: 24px 0 24px 0;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.6;
   color: #080c09;
+  max-width: 287px;
 }
 
 .feedback-author {
@@ -85,15 +93,29 @@
 .feedback-swiper {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  align-items: center;
+  align-items: left;
   gap: 8px;
+  overflow: hidden !important;
 }
 
 .feedback-swiper .swiper-wrapper {
   padding: 0;
   margin: 0;
   list-style: none;
+  border: none;
   width: 100%;
+}
+
+.feedback-scroll-wrapper {
+  min-width: auto;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.feedback-item {
+  border: none;
 }
 
 .swiper-pagination {
@@ -107,7 +129,7 @@
   position: relative;
   width: 100%;
   max-width: none;
-  overflow: visible;
+  overflow: visible !important;
   z-index: 10;
 }
 
@@ -119,6 +141,7 @@
   opacity: 0.5;
   transition: opacity 0.3s, background-color 0.3s !important;
   cursor: pointer;
+  margin: 0 4px;
 }
 
 .swiper-pagination-bullet-active {
@@ -151,11 +174,13 @@
   margin-right: 3px;
   width: 48px;
   height: 48px;
+  box-sizing: border-box;
   background: #f2f2f2;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 3px;
 }
 
 .feedback-nav svg {
@@ -184,7 +209,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 48px;
-  margin-bottom: 32px;
+  overflow: visible !important;
 }
 
 .swiper-pagination {
@@ -206,7 +231,45 @@
 }
 
 @media (min-width: 768px) {
-  .feedback-swiper {
-    grid-template-columns: auto 1fr auto;
+  .feedback-title {
+    font-size: 48px;
+  }
+  .feedback-subtitle {
+    font-size: 18px;
+  }
+  .feedback-text {
+    font-size: 20px;
+    max-width: 293px;
+  }
+  .feedback-card {
+    min-width: 341px;
+    min-height: 252px;
+    border: none;
+  }
+  .feedback-author {
+    padding-bottom: 0;
+  }
+  .feedback-scroll-wrapper {
+    gap: 24px;
+  }
+  .feedback-author {
+    padding-bottom: 15px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .feedback-text {
+    max-width: 373px;
+  }
+  .feedback-card {
+    min-width: 421px;
+    min-height: 220px;
+  }
+
+  .feedback-scroll-wrapper {
+    gap: 24px;
+  }
+  .feedback-author {
+    padding-bottom: 15px;
   }
 }
