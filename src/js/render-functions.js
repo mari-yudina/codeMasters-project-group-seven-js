@@ -42,7 +42,8 @@ export function furnitureModalMarkup({ _id, name, images, description, price, co
             <ul class="furnitures__colors-list">${modalColorListMarkup(color)}</ul>
             <p class="modal-furniture__description">${description}</p>
             <p class="modal-furniture__sizes">Розміри: ${sizes}</p>
-             <button class=" btn modal-furniture__btn" type="button">
+             <button class=" btn modal-furniture__btn" type="button" data-model-id="${_id}" 
+        data-color="${color && color.length > 0 ? color[0] : ''}">
             Перейти до замовлення
         </button>
         </div>
