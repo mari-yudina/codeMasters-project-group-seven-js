@@ -6,11 +6,8 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 import { furnitureModalMarkup } from './render-functions';
 import refs from './refs';
-// import { data } from './furniture-data';
-// import { openOrderModal } from './order-modal';
-// import { openModal } from './furniture-modal';
+import { popularData } from './furniture-data';
 import { handleEscKey } from './furniture-modal';
-let furnitureData = []
 
 let currentPage = 1;
 const limit = 8;
@@ -23,7 +20,7 @@ async function fetchFurnituresData(page = 1, limit = 8, type = 'popular') {
     const response = await axios.get(
       `https://furniture-store.b.goit.study/api/furnitures?type=${type}&page=${page}&limit=${limit}`
     );
-    furnitureData.push(...response.data.furnitures)
+    popularData.push(...response.data.furnitures)
     return response.data;
   } catch (error) {
     iziToast.warning({
@@ -166,13 +163,7 @@ export async function openModal(event) {
   document.body.classList.add('body--no-scroll');
 
   const currentFurniture = furnitureItem.dataset.id;
-  console.log('currentFurniture', currentFurniture);
-  console.log('furnitureData', furnitureData);
-
-
-  const furniture = furnitureData.find(({ _id }) => _id === currentFurniture);
-
-  console.log('furniture', furniture);
+  const furniture = popularData.find(({ _id }) => _id === currentFurniture);
 
   refs.modalFurniture.innerHTML = furnitureModalMarkup(furniture);
   refs.modal.classList.add("modal--is-open");
