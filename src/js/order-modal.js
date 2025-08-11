@@ -85,23 +85,4 @@ form.addEventListener('submit', async e => {
   }
 });
 
-// Делегування кліку на кнопку "Перейти до замовлення"
-document.addEventListener('click', e => {
-  const btn = e.target.closest('.modal-furniture__btn');
-  if (!btn) return;
-
-  const modelId = btn.dataset.modelId || null;
-  const color = btn.dataset.color || null;
-
-  // Закриваємо меблеву модалку
-  const openModals = document.querySelectorAll('.modal.modal--is-open');
-  openModals.forEach(modalEl => {
-    modalEl.classList.remove('modal--is-open');
-    document.body.classList.remove('body--no-scroll');
-  });
-
-  // Відкриваємо order-modal
-  openOrderModal(modelId, color);
-});
-
 window.openOrderModal = openOrderModal;

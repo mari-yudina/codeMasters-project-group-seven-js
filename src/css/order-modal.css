@@ -150,9 +150,10 @@ body.modal-open {
   background: #6b0609;
 }
 
-.form-input:not(:placeholder-shown):invalid {
+/* .form-input:invalid:not(:placeholder-shown) {
   border-color: red;
 }
-.form-input:not(:placeholder-shown):valid {
+
+.form-input:valid:not(:placeholder-shown) {
   border-color: green;
-}
+} */
