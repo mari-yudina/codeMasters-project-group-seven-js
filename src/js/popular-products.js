@@ -1,185 +1,149 @@
 import axios from 'axios';
 import Swiper from 'swiper';
 import 'swiper/css';
-import refs from './refs';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
 import { furnitureModalMarkup } from './render-functions';
-import { handleEscKey } from './furniture-modal';
+import refs from './refs';
+import { data } from './furniture-data';
+import { openOrderModal } from './order-modal';
+import { openModal } from './furniture-modal';
 
-let furnitureData = []
+let currentPage = 1;
+const limit = 8;
+let isLoading = false;
+let isLastPage = false;
+let swiperInstance = null;
 
-async function fetchFurnitures() {
+async function fetchFurnituresData(page = 1, limit = 8, type = 'popular') {
   try {
-    const { data } = await axios.get(
-      'https://furniture-store.b.goit.study/api/furnitures?type=popular'
+    const response = await axios.get(
+      `https://furniture-store.b.goit.study/api/furnitures?type=${type}&page=${page}&limit=${limit}`
     );
-    console.log('Меблі:', data);
-    const { furnitures, totalItems, page, limit } = data;
 
-    furnitureData.push(...furnitures)
-
-    console.log('Меблі:', furnitures);
-    console.log('Всього товарів:', totalItems);
-    console.log('Сторінка:', page);
-    console.log('Ліміт:', limit);
-    // const expensiveItems = furnitures.filter(item => item.rate > 4.5);
-    // console.log('Популярні:', expensiveItems);
-    // Знаходимо список у DOM
-
-    const listTwo = document.querySelector('.swiper-wrapper');
-
-    // Створюємо розмітку для свайпера
-    const markupTwo = furnitures
-      .map(
-        item => `
-      <li class="furniture-card swiper-slide" data-id="${item._id}">
-      <div class = "furniture-card-box-img">
-        <img class = "furniture-card-img" src="${item.images[1]}" alt="${item.name
-          }"
-
-          /></div>
-          <div class = "box__product-card-info">
-        <p>${item.name}</p>
-        <div class = "box__color">
-
-<div class="color" style="background-color: ${item.color[0]
-          }; width: 24px; height: 24px;"></div>
-   <div class="color" style="background-color: ${item.color[1]
-          }; width: 24px; height: 24px;"></div>
-   <div class="color" style="background-color: ${item.color[2]
-          }; width: 24px; height: 24px;"></div>
-
-        </div>
-        <p>${item.price * 42} грн</p></div>
-        <button class = "btn__furniture-details-modal" type = "button">Детальніше</button>
-      </li>
-    `
-      )
-      .join('');
-
-    listTwo.innerHTML = markupTwo;
-
-    const swiper = new Swiper('.mySwiper', {
-      slidesPerView: 1, // стартова кількість карток
-      spaceBetween: 16, // відстань між картками
-      pagination: {
-        el: '.swiper-pagination',
-        dynamicBullets: true,
-      },
-      navigation: {
-        nextEl: '.btn-right',
-        prevEl: '.btn-left',
-        disabledClass: 'swiper-button-disabled',
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 24,
-        },
-        1440: {
-          slidesPerView: 4,
-          spaceBetween: 24,
-        },
-      },
-    });
+    return response.data;
   } catch (error) {
-    console.error('Помилка запиту:', error.message);
+    iziToast.warning({
+      message: `Помилка запиту: ${error.message}`,
+      position: 'topCenter',
+      timeout: 3000,
+    });
+
+    return null;
   }
 }
 
-fetchFurnitures();
-//--------------------------------------------
-const listTwo = document.querySelector('.swiper-wrapper');
-listTwo.addEventListener('click', openModal);
+function createFurnitureMarkup(furnitures) {
+  if (!Array.isArray(furnitures)) return '';
 
-export async function openModal(event) {
+  return furnitures
+    .map(item => {
+      const image = item.images?.[1] || item.images?.[0] || 'default.jpg';
+      const colors = Array.isArray(item.color) ? item.color.slice(0, 3) : [];
 
-
-  const btn = event.target.closest('.btn__furniture-details-modal');
-  if (!btn) return;
-
-  const furnitureItem = btn.closest('.furniture-card');
-  if (!furnitureItem) return;
-
-  document.body.classList.add('body--no-scroll');
-
-  const currentFurniture = furnitureItem.dataset.id;
-  console.log('currentFurniture', currentFurniture);
-  console.log('furnitureData', furnitureData);
-
-
-  const furniture = furnitureData.find(({ _id }) => _id === currentFurniture);
-
-  console.log('furniture', furniture);
-
-  refs.modalFurniture.innerHTML = furnitureModalMarkup(furniture);
-  refs.modal.classList.add("modal--is-open");
-
-  document.addEventListener("keydown", handleEscKey);
-
-  //-------------------------------------rate
-  document.querySelectorAll('.rating').forEach(el => {
-    const rate = parseFloat(el.dataset.rate);
-    const percent = (rate / 5) * 100;
-    el.style.setProperty('--rating-percent', `${percent}%`);
-  });
-
+      return `
+        <li class="furniture-card swiper-slide " data-id="${item._id}">
+          <div class="furniture-card-box-img">
+            <img class="furniture-card-img" src="${image}" alt="${item.name}" />
+          </div>
+          <div class="box__product-card-info">
+            <p>${item.name}</p>
+            <div class="box__color">
+              ${colors
+          .map(
+            c =>
+              `<div class="color" style="background-color: ${c}; width: 24px; height: 24px;"></div>`
+          )
+          .join('')}
+            </div>
+            <p>${item.price * 42} грн</p>
+          </div>
+          <button class="btn__furniture-details-modal furnitures__details-btn  " type="button">Детальніше</button>
+        </li>
+      `;
+    })
+    .join('');
 }
-//------------------------------------------
 
-// async function fetchFurnituresPopular() {
-//   const { data } = await axios(
-//     'https://furniture-store.b.goit.study/api/furnitures?type=popular'
-//   );
-//   return data;
-// }
-// fetchFurnituresPopular().then(data => console.log('Меблі:', data));
+function appendFurnitureMarkup(markup) {
+  const container = document.querySelector('.swiper-wrapper');
+  if (!container) return;
+  container.insertAdjacentHTML('beforeend', markup);
 
-// const furnitureMarkup = `
-//       <li class="furniture-card">
-//       <div class = "furniture-card-box-img">
-//         <img class = "furniture-card-img" src="${item.images[1]}" alt="${
-//   item.name
-// }"
+  // Оновлюємо Swiper після додавання нових слайдів
+  if (swiperInstance) {
+    swiperInstance.update();
+  }
+  // Додаємо слухачі на кнопки "Детальніше"
+  const detailButtons = container.querySelectorAll(
+    '.btn__furniture-details-modal'
+  );
+  detailButtons.forEach(btn => {
+    btn.addEventListener('click', openModal);
+  });
+}
 
-//           /></div>
-//         <p>${item.name}</p>
-//         <div class = "box__color">
+function initSwiper() {
+  swiperInstance = new Swiper('.mySwiper', {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    pagination: {
+      el: '.swiper-pagination',
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: '.btn-right',
+      prevEl: '.btn-left',
+      disabledClass: 'swiper-button-disabled',
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+      },
+      1440: {
+        slidesPerView: 4,
+        spaceBetween: 24,
+      },
+    },
+  });
+}
 
-// <div class="color" style="background-color: ${
-//   item.color[0]
-// }; width: 24px; height: 24px;"></div>
-//    <div class="color" style="background-color: ${
-//      item.color[1]
-//    }; width: 24px; height: 24px;"></div>
-//    <div class="color" style="background-color: ${
-//      item.color[2]
-//    }; width: 24px; height: 24px;"></div>
+async function loadInitialFurniture() {
+  const data = await fetchFurnituresData(currentPage, limit);
+  if (!data || !data.furnitures) return;
 
-//         </div
-//         <p>${item.price * 42} грн</p>
-//         <button class = "btn" type = "button">Детальніше</button>
-//       </li>
-//     `;
+  const markup = createFurnitureMarkup(data.furnitures);
+  appendFurnitureMarkup(markup);
+  initSwiper();
 
-// const list = document.querySelector('.popular__products__list');
+  if (data.totalItems <= limit) {
+    isLastPage = true;
+  }
+}
 
-// function renderFurnituresPopular(data) {
-//   const markup = data.map(el => furnitureMarkup).join('');
+async function loadNextFurniturePage() {
+  if (isLoading || isLastPage) return;
 
-//   list.insertAdjacentHTML('beforeend', markup);
-//   lightbox.refresh();
-// }
+  isLoading = true;
+  currentPage += 1;
 
-// async function getFurnituresPopular() {
-//   try {
-//     const data = await fetchFurnituresPopular();
-//     renderFurnituresPopular(data);
+  const data = await fetchFurnituresData(currentPage, limit);
+  if (!data || !data.furnitures || data.furnitures.length === 0) {
+    isLastPage = true;
+    return;
+  }
 
-//     // showLoader();
-//   } catch (error) {
-//     console.log(error);
-//   }
-//   // } finally {
-//   //   hideLoader();
-//   // }
-// }
+  const markup = createFurnitureMarkup(data.furnitures);
+  appendFurnitureMarkup(markup);
+  isLoading = false;
+}
+
+// Прив'язуємо завантаження до кнопки .btn-right
+document.querySelector('.btn-right').addEventListener('click', () => {
+  loadNextFurniturePage();
+});
+
+// Початкове завантаження
+loadInitialFurniture();
