@@ -47,10 +47,7 @@
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.box-btn {
-  display: flex;
-  justify-content: space-between;
-}
+
 .box__btn-list {
   display: flex;
   flex-direction: row;
@@ -140,10 +137,27 @@
   opacity: 80%; /* цвет активной точки */
 }
 
-.swiper-pagination {
-  position: static !important;
-  /* flex: 1 1 auto; */
+.box-btn {
+  display: flex;
+  justify-content: space-between;
 }
+
+  .box-btn.swiper-pagination {
+ position: static !important;
+  width: auto !important;
+  transform: none !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+} 
+.box-btn{
+  display: flex;
+  justify-content: end;
+} 
+
+
 
 /*
 .swiper-slide {
