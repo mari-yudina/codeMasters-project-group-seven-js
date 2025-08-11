@@ -11,7 +11,7 @@
         <form class="order-modal__form" id="orderForm" autocomplete="off" novalidate>
             <label class="order-modal__label">Пошта*
                 <input class="order-modal__input form-input" type="email" name="email" placeholder="Пошта" required
-                    pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,})\.([A-z]{2,8})" title="Format: name@example.com" />
+                    pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Format: name@example.com" />
             </label>
 
             <label class="order-modal__label">Телефон*
