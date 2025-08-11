@@ -5,27 +5,22 @@
       Дізнайтеся, що кажуть наші задоволені клієнти про наші меблі.
     </p>
     <div class="feedback-swiper swiper">
-      <button
-        id="feedback-prev"
-        class="feedback-nav prev"
-        type="button"
-        aria-label="Previous"
-      >
-        <svg class="icon"><use xlink:href="#icon-arrow-left"></use></svg>
-      </button>
-
       <ul id="feedback-list" class="swiper-wrapper"></ul>
 
-      <button
-        id="feedback-next"
-        class="feedback-nav next"
-        type="button"
-        aria-label="Next"
-      >
-        <svg class="icon"><use xlink:href="#icon-arrow-right"></use></svg>
+      <div class="feedback-controls">
+    <div class="swiper-pagination"></div>
+    <div class="feedback-scroll-wrapper">
+      <button id="feedback-prev" class="feedback-nav prev" type="button" aria-label="Previous">
+        <svg class="scroll-icon">
+          <use xlink:href="../img/sprite.svg#icon-arrow-left" width="14"></use>
+        </svg>
       </button>
-
-      <div class="swiper-pagination"></div>
+      <button id="feedback-next" class="feedback-nav next" type="button" aria-label="Next">
+        <svg class="scroll-icon">
+          <use xlink:href="../img/sprite.svg#icon-arrow-right" width="14"></use>
+        </svg>
+      </button>
     </div>
   </div>
+</div>
 </section>
