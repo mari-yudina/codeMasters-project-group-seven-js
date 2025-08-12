@@ -20,7 +20,7 @@ async function fetchFurnituresData(page = 1, limit = 8, type = 'popular') {
     const response = await axios.get(
       `https://furniture-store.b.goit.study/api/furnitures?type=${type}&page=${page}&limit=${limit}`
     );
-    popularData.push(...response.data.furnitures)
+    popularData.push(...response.data.furnitures);
     return response.data;
   } catch (error) {
     iziToast.warning({
@@ -47,16 +47,16 @@ function createFurnitureMarkup(furnitures) {
             <img class="furniture-card-img" src="${image}" alt="${item.name}" />
           </div>
           <div class="box__product-card-info">
-            <p>${item.name}</p>
+            <p >${item.name}</p>
             <div class="box__color">
               ${colors
-          .map(
-            c =>
-              `<div class="color" style="background-color: ${c}; width: 24px; height: 24px;"></div>`
-          )
-          .join('')}
+                .map(
+                  c =>
+                    `<div class="color" style="background-color: ${c}; width: 24px; height: 24px;"></div>`
+                )
+                .join('')}
             </div>
-            <p>${item.price * 42} грн</p>
+            <p class=" furniture-price">${item.price * 42} грн</p>
           </div>
           <button class="btn__furniture-details-modal furnitures__details-btn  " type="button">Детальніше</button>
         </li>
@@ -147,13 +147,10 @@ document.querySelector('.btn-right').addEventListener('click', () => {
 // Початкове завантаження
 loadInitialFurniture();
 
-
 const listTwo = document.querySelector('.swiper-wrapper');
 listTwo.addEventListener('click', openModal);
 
 export async function openModal(event) {
-
-
   const btn = event.target.closest('.btn__furniture-details-modal');
   if (!btn) return;
 
@@ -166,9 +163,9 @@ export async function openModal(event) {
   const furniture = popularData.find(({ _id }) => _id === currentFurniture);
 
   refs.modalFurniture.innerHTML = furnitureModalMarkup(furniture);
-  refs.modal.classList.add("modal--is-open");
+  refs.modal.classList.add('modal--is-open');
 
-  document.addEventListener("keydown", handleEscKey);
+  document.addEventListener('keydown', handleEscKey);
 
   //-------------------------------------rate
   document.querySelectorAll('.rating').forEach(el => {
@@ -176,5 +173,4 @@ export async function openModal(event) {
     const percent = (rate / 5) * 100;
     el.style.setProperty('--rating-percent', `${percent}%`);
   });
-
 }

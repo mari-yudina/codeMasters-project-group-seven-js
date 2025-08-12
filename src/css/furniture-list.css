@@ -87,12 +87,14 @@
 }
 
 .furnitures__card-title {
-  font-weight: 600;
+  /* font-weight: 600;
   font-size: 16px;
+
 
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 8px;
+
 }
 
 .furnitures__price {
