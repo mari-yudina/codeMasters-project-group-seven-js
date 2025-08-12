@@ -1,6 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+
 const modal = document.getElementById('orderModal');
 const overlay = modal.querySelector('.order-modal__overlay');
 const closeBtn = modal.querySelector('.order-modal__close');
@@ -15,19 +16,22 @@ export function openOrderModal(modelId, color) {
 
   modal.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
+  document.addEventListener("keydown", handleEscKey);
 }
 
 function closeOrderModal() {
   modal.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
+  document.removeEventListener("keydown", handleEscKey);
+  document.body.classList.remove('body--no-scroll');
+
   form.reset();
+  currentModelId = null;
+  currentColor = null;
 }
 
 closeBtn.addEventListener('click', closeOrderModal);
 overlay.addEventListener('click', closeOrderModal);
-window.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeOrderModal();
-});
 
 form.addEventListener('submit', async e => {
   e.preventDefault();
@@ -85,23 +89,49 @@ form.addEventListener('submit', async e => {
   }
 });
 
+export function handleEscKey(event) {
+  if (event.key === "Escape") {
+    closeOrderModal();
+  };
+}
+
 // Делегування кліку на кнопку "Перейти до замовлення"
-document.addEventListener('click', e => {
-  const btn = e.target.closest('.modal-furniture__btn');
-  if (!btn) return;
+// document.addEventListener('click', e => {
+//   const btn = e.target.closest('.modal-furniture__btn');
+//   if (!btn) return;
 
-  const modelId = btn.dataset.modelId || null;
-  const color = btn.dataset.color || null;
+//   const modelId = btn.dataset.modelId || null;
+//   const color = btn.dataset.color || null;
 
-  // Закриваємо меблеву модалку
-  const openModals = document.querySelectorAll('.modal.modal--is-open');
-  openModals.forEach(modalEl => {
-    modalEl.classList.remove('modal--is-open');
-    document.body.classList.remove('body--no-scroll');
-  });
+//   // Закриваємо меблеву модалку
+//   const openModals = document.querySelectorAll('.modal.modal--is-open');
+//   openModals.forEach(modalEl => {
+//     modalEl.classList.remove('modal--is-open');
+//     document.body.classList.remove('body--no-scroll');
+//   });
 
-  // Відкриваємо order-modal
-  openOrderModal(modelId, color);
-});
+//   // Відкриваємо order-modal
+//   openOrderModal(modelId, color);
+// });
 
-window.openOrderModal = openOrderModal;
+// window.openOrderModal = openOrderModal;
+
+// document.addEventListener('click', e => {
+//   const btn = e.target.closest('.modal-furniture__btn');
+//   if (!btn) return;
+
+//   const selectedColorInput = btn
+//     .closest('.modal-furniture')
+//     ?.querySelector('input[name="color"]:checked');
+
+//   const modelId = btn.dataset.modelId || null;
+//   const color = selectedColorInput.value;
+
+//   // Закриваємо меблеву модалку
+//   document.querySelectorAll('.modal.modal--is-open').forEach(modalEl => {
+//     modalEl.classList.remove('modal--is-open');
+//     document.body.classList.remove('body--no-scroll');
+//   });
+
+//   openOrderModal(modelId, color);
+// });
