@@ -116,27 +116,13 @@
   min-width: auto;
   min-height: 48px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: end;
+  gap: 16px;
 }
 
 .feedback-item {
   border: none;
-}
-
-.swiper-pagination {
-  display: flex;
-  justify-content: flex-start;
-  gap: 8px;
-  padding: 10px 0;
-  grid-column: 1;
-  text-align: left;
-  user-select: none;
-  position: relative;
-  width: 100%;
-  max-width: none;
-  overflow: visible !important;
-  z-index: 10;
 }
 
 .swiper-pagination-bullet {
@@ -214,19 +200,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 48px;
-  overflow: visible !important;
+  width: 100%;
+}
+
+.feedback-controls .swiper-pagination {
+  position: static;
+  display: flex;
+  align-items: center;
+}
+
+.feedback-controls .swiper-button-prev,
+.feedback-controls .swiper-button-next {
+  position: static;
+  margin: 0 4px;
 }
 
 .swiper-pagination {
   display: flex;
   gap: 8px;
   justify-content: flex-start;
-}
-
-.feedback-scroll-wrapper {
-  display: flex;
-  gap: 16px;
 }
 
 #feedback-prev.disabled,
@@ -278,9 +270,5 @@
   .feedback-card {
     min-width: 421px;
     min-height: 220px;
-  }
-
-  .feedback-scroll-wrapper {
-    gap: 24px;
   }
 }
