@@ -47,7 +47,7 @@ function createFurnitureMarkup(furnitures) {
             <img class="furniture-card-img" src="${image}" alt="${item.name}" />
           </div>
           <div class="box__product-card-info">
-            <p class="furniture-text">${item.name}</p>
+            <p >${item.name}</p>
             <div class="box__color">
               ${colors
                 .map(
@@ -56,7 +56,7 @@ function createFurnitureMarkup(furnitures) {
                 )
                 .join('')}
             </div>
-            <p class="furniture-text furniture-price">${item.price * 42} грн</p>
+            <p class=" furniture-price">${item.price * 42} грн</p>
           </div>
           <button class="btn__furniture-details-modal furnitures__details-btn  " type="button">Детальніше</button>
         </li>
