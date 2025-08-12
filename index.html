@@ -9,7 +9,7 @@
     <script type="module" crossorigin src="/codeMasters-project-group-seven-js/index.js"></script>
     <link rel="modulepreload" crossorigin href="/codeMasters-project-group-seven-js/assets/vendor-B4sZL_Dy.js">
     <link rel="stylesheet" crossorigin href="/codeMasters-project-group-seven-js/assets/vendor-KYHoeg1F.css">
-    <link rel="stylesheet" crossorigin href="/codeMasters-project-group-seven-js/assets/index-CXY4IvP7.css">
+    <link rel="stylesheet" crossorigin href="/codeMasters-project-group-seven-js/assets/index-W35D6zMW.css">
   </head>
   <body id="top">
     <header class="header">
@@ -460,7 +460,7 @@
         <form class="order-modal__form" id="orderForm" autocomplete="off" novalidate>
             <label class="order-modal__label">Пошта*
                 <input class="order-modal__input form-input" type="email" name="email" placeholder="Пошта" required
-                    pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,})\.([A-z]{2,8})" title="Format: name@example.com" />
+                    pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Format: name@example.com" />
             </label>
 
             <label class="order-modal__label">Телефон*
@@ -483,10 +483,16 @@
   <div class="container">
     <div class="footer-content">
       <a class="footer-logo" href="#top" aria-label="company logo">
-        <svg class="icon-company-logo" width="228.5" height="97.93">
-          <use href="/codeMasters-project-group-seven-js/assets/sprite-CQ3X4qy4.svg#icon-company-logo"></use>
-        </svg>
+       <img
+          class="icon-company-logo"
+          src="/codeMasters-project-group-seven-js/assets/footer-logo-u_1wKlSL.svg"
+          alt="Company logo"
+        />
       </a>
+
+
+     
+
       <p class="footer-text">© 2025 Relume. Всі права захищені.</p>
 
       <ul class="footer-list">
@@ -543,7 +549,7 @@
             rel="noopener noreferrer"
             tabindex="0"
           >
-            <svg class="social-icon-white" width="24" height="24">
+            <svg class="social-icon-black" width="24" height="24">
               <use href="/codeMasters-project-group-seven-js/assets/sprite-CQ3X4qy4.svg#icon-instagram"></use>
             </svg>
           </a>
