@@ -54,13 +54,6 @@
   color: #080c09;
 }
 
-.box__btn-list {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  justify-content: flex-end;
-}
-
 .btn__furniture-details-modal,
 .btn-swiper {
   border: 1px solid rgba(8, 12, 9, 0.15);
@@ -105,7 +98,53 @@
   width: 48px;
   height: 48px;
 }
+.popular__products__box-btn {
+  display: flex;
+  position: relative;
+}
+.box__btn-list {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
+.popular__products__swiper-pagination.swiper-pagination {
+  visibility: visible !important;
+  display: flex !important;
+  position: static !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 88px !important;
+  height: 8px !important;
+  min-height: 8px !important;
+  transform: none !important;
+}
+.swiper-pagination-bullet {
+  visibility: visible !important;
+  display: flex !important;
+  background-color: #000 !important;
+  opacity: 0.5 !important;
+  border-radius: 50% !important;
+  transition: opacity 250ms ease !important;
+  height: 8px !important;
+  min-height: 8px !important;
+  width: 8px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  height: 8px !important;
+  min-height: 8px !important;
+  width: 8px !important;
+  background-color: #6b0609 !important;
+  z-index: 10 !important;
+}
 /* -------------------------------------------start */
 .swiper {
   margin-bottom: 48px;
