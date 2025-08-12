@@ -1,5 +1,5 @@
 import { getFurnitureByCategory, getFurnitures } from "./furnitures-api";
-import { clearFilterBtn, errorMessage, hideLoader, lastPageMessage, showLoader, smoothScrollLoadMore, warningMessage } from "./furnitures-helpers";
+import { clearFilterBtn, errorMessage, hideLoader, lastPage, lastPageMessage, showLoader, smoothScrollLoadMore, warningMessage } from "./furnitures-helpers";
 import { furnituresCardMarkup } from "./render-functions";
 import { data } from "./furniture-data";
 import refs from "./refs";
@@ -35,7 +35,7 @@ export async function handlerCategoriesFilter(event) {
 
         refs.furnitures.innerHTML = furnituresCardMarkup(filteredData.furnitures);
         data.push(...filteredData.furnitures);
-        lastPageMessage(filteredData);
+        lastPage(filteredData);
 
     } catch (error) {
         errorMessage(`Помилка при завантаженні меблів по категоріях: ${error}`);

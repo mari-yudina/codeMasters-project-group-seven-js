@@ -2,6 +2,7 @@ import { furnitureModalMarkup } from "./render-functions";
 import refs from "./refs";
 import { data } from "./furniture-data";
 import { openOrderModal } from './order-modal';
+import { warningMessage } from "./furnitures-helpers";
 
 
 
@@ -58,10 +59,22 @@ refs.modalFurniture.addEventListener('click', event => {
     const btn = event.target.closest('.modal-furniture__btn');
     if (!btn) return;
 
-    const modelId = btn.dataset.modelId;
-    const color = btn.dataset.color;
+    document.body.classList.add('body--no-scroll');
 
-    openOrderModal(modelId, color);
+    const selectedColorInput = btn
+        .closest('.modal-furniture')
+        .querySelector('input[name="color"]:checked');
 
-    closeModal();
+    if (!selectedColorInput) {
+        warningMessage('Будь ласка, оберіть колір перед замовленням!')
+        return;
+    } else {
+        const modelId = btn.dataset.modelId;
+        const color = selectedColorInput.value;
+
+        openOrderModal(modelId, color);
+        closeModal();
+    }
+
+
 });

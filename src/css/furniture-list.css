@@ -89,14 +89,12 @@
 .furnitures__card-title {
   /* font-weight: 600;
   font-size: 16px;
-  line-height: 160%; */
-  display: -webkit-box !important;
-  -webkit-box-orient: vertical;
+
+
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: normal;
   margin-bottom: 8px;
-  /* min-height: calc(16px * 1.6 * 2); */
+
 }
 
 .furnitures__price {
@@ -155,6 +153,11 @@
 
   .our-furnitures__load-more-btn {
     min-width: 340px;
+  }
+
+  .furnitures__card-title {
+    width: 300px;
+    white-space: nowrap;
   }
 }
 @media screen and (min-width: 1440px) {

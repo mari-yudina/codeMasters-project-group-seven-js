@@ -57,6 +57,14 @@ export function smoothScrollLoadMore() {
     });
 }
 
+export function lastPage(data) {
+    if (Number(data.page) * Number(data.limit) >= data.totalItems) {
+        hideLoadMoreButton();
+    } else {
+        showLoadMoreButton();
+    }
+}
+
 export function lastPageMessage(data) {
     if (Number(data.page) * Number(data.limit) >= data.totalItems) {
         warningMessage("Усі меблі завантажено!");
