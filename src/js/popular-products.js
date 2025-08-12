@@ -90,6 +90,7 @@ function initSwiper() {
     pagination: {
       el: '.swiper-pagination',
       dynamicBullets: true,
+      clickable: true,
     },
     navigation: {
       nextEl: '.btn-right',

@@ -31,7 +31,7 @@
 }
 
 .ac-trigger {
-  font-family: 'Raleway Normal' !important;
+  font-family: 'Raleway', sans-serif !important;
   font-size: 16px !important;
   line-height: 160% !important;
   padding: 0 !important;
@@ -63,7 +63,7 @@
 }
 
 .ac-text {
-  font-family: 'Raleway Normal' !important;
+  font-family: 'Raleway', sans-serif !important;
   font-weight: 400 !important;
   font-size: 16px !important;
   line-height: 160% !important;
