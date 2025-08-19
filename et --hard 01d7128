@@ -1,0 +1,275 @@
+[33mcommit 2b4dae806be38be495e227eeb5f9c93cdaf88e45[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfix-popular-products[m[33m, [m[1;31morigin/update[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mupdate[m[33m, [m[1;32mmain[m[33m)[m
+Merge: d274535 189328e
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 19 18:10:12 2025 +0300
+
+    Merge pull request #55 from mari-yudina/revert-53-fix-popular-products
+    
+    Revert "Fix popular products"
+
+[33mcommit 189328e3682461f9b3278d049acf6d54abd0518b[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 19 18:03:41 2025 +0300
+
+    Revert "Fix popular products"
+
+[33mcommit d274535df07455cc6df341dd9a0f383dad60be5f[m
+Merge: 4106970 01d7128
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 19 17:33:54 2025 +0300
+
+    Merge pull request #54 from mari-yudina/fix-popular-products
+    
+    none
+
+[33mcommit 01d7128257a26da5b514690f6a7bab8094db2b75[m[33m ([m[1;31morigin/fix-popular-products[m[33m)[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 19 17:25:29 2025 +0300
+
+    none
+
+[33mcommit 4106970ee0458aba3fd3987a455f1972e762aa56[m
+Merge: c114c6f 6e94932
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 19 17:14:04 2025 +0300
+
+    Merge pull request #53 from mari-yudina/fix-popular-products
+    
+    Fix popular products
+
+[33mcommit 6e949329f6ebf7c1ef6030516ac2afdf666956dd[m
+Merge: 5cd04cb c114c6f
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 19 17:12:08 2025 +0300
+
+    Merge branch 'main' into fix-popular-products
+
+[33mcommit 5cd04cb4dad83947888978e9f82ab14983653a30[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 19 17:06:17 2025 +0300
+
+    update pagination feedback and popular-products
+
+[33mcommit c114c6f7143b2350a6ca553a2b5c10ac4ec9d42c[m
+Merge: fd2d58b 8054e23
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 18:32:27 2025 +0300
+
+    Merge pull request #51 from mari-yudina/some-fix
+    
+     add logo heder modal
+
+[33mcommit 8054e231f8710ff4b86f59aec66d98a643ffc694[m[33m ([m[1;31morigin/some-fix[m[33m)[m
+Merge: 3a86102 fd2d58b
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 18:30:57 2025 +0300
+
+    Merge branch 'main' into some-fix
+
+[33mcommit 3a86102c93984262cc326f41618c49d8f5a04642[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 18:08:01 2025 +0300
+
+     add logo heder modal
+
+[33mcommit fd2d58b9af7f72e61e0ff13cd3a05fef69227417[m
+Merge: e5f05b3 157d748
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 14:38:29 2025 +0300
+
+    Merge pull request #50 from mari-yudina/feedback_3
+    
+    Feedback 3
+
+[33mcommit 157d74814a24b66db54f3470a579f68044e0e191[m
+Author: Olha <olha4229@gmail.com>
+Date:   Tue Aug 12 14:27:11 2025 +0300
+
+    positioning-buttons
+
+[33mcommit 9d2dc775af8af1106096041b8ad590ecf7198a78[m
+Author: Olha <olha4229@gmail.com>
+Date:   Tue Aug 12 13:35:29 2025 +0300
+
+    arranging_cards
+
+[33mcommit e5f05b34bbb5e1490d525175e6fe836dfd2092c0[m
+Merge: 3dd01f7 96a7e6e
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 12:57:26 2025 +0300
+
+    Merge pull request #49 from mari-yudina/popular-products-two
+    
+    test
+
+[33mcommit 96a7e6e8769a4c68807de733af8365a0d270a474[m[33m ([m[1;31morigin/popular-products-two[m[33m)[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 12:52:39 2025 +0300
+
+    test
+
+[33mcommit 3dd01f74897a1b9b6fa0670f83df11fa58b1c827[m
+Merge: b62b685 5bb9fab
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 11:17:54 2025 +0300
+
+    Merge pull request #48 from mari-yudina/popular-products
+    
+    Popular products
+
+[33mcommit 5bb9fabfd015f4f5fcc6e88b7237592c5b67c77d[m
+Merge: 53a5087 b62b685
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 11:17:46 2025 +0300
+
+    Merge branch 'main' into popular-products
+
+[33mcommit b62b6854dbf8e683e30fba96a4a845feaee8dd3b[m
+Merge: 58db9ac 657763d
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 11:08:49 2025 +0300
+
+    Merge pull request #47 from mari-yudina/furnitures-list-fixing-after-review
+    
+    Fix category list and order modal
+
+[33mcommit 657763dab84860119d4cabc39f4a28fbe77cde6e[m
+Author: Dmytrii Datskevych <datskevychdv@gmail.com>
+Date:   Tue Aug 12 10:00:58 2025 +0200
+
+    Fix category list and order modal
+
+[33mcommit 53a50877c71c1634db03a79376b3b97f0c5f9b9d[m[33m ([m[1;31morigin/popular-products[m[33m)[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 10:49:05 2025 +0300
+
+    fix
+
+[33mcommit f37dbf5c5ec12cb9cf2b04cc58a48a4a4c68c2c6[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 10:23:50 2025 +0300
+
+    fix popular-products
+
+[33mcommit 58db9ac29936d38a449810b6a7afe02eb9afaf0f[m
+Merge: 1e7c22f 82c4121
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 08:40:58 2025 +0300
+
+    Merge pull request #46 from mari-yudina/footer
+    
+    fix footer
+
+[33mcommit 82c4121b95eb671db5a721c96f6834d50fdbb457[m[33m ([m[1;31morigin/footer[m[33m)[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Tue Aug 12 01:00:11 2025 +0300
+
+    fix footer
+
+[33mcommit 1e7c22fbe6b1be530f9c8e6705e4c050b8133f72[m
+Merge: 8cda957 72f3e29
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 20:00:31 2025 +0300
+
+    Merge pull request #44 from mari-yudina/fix-footer
+    
+    fix popular-products.css
+
+[33mcommit 72f3e2921e1754af46c96b1df5ad8f274daf5fcd[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 19:58:09 2025 +0300
+
+    fix popular-products.css
+
+[33mcommit 8cda957bc46580f70224e5512d503fcdb7548ce6[m
+Merge: 24aa37d acf1dac
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 19:11:03 2025 +0300
+
+    Merge pull request #43 from mari-yudina/fix-footer
+    
+    fix footer.css
+
+[33mcommit acf1dac6faac1672bdffd495f4e101ad953ff0f4[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 19:08:04 2025 +0300
+
+    fix footer.css
+
+[33mcommit 24aa37deb07644f149ce1d25c532f88eab742591[m
+Merge: c178774 08d5571
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 15:11:23 2025 +0300
+
+    Merge pull request #41 from mari-yudina/fix-feetback
+    
+    fix feedback.html
+
+[33mcommit 08d5571a5bdf7d7571af433e73a588a354067051[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 15:10:10 2025 +0300
+
+    fix feedback.html
+
+[33mcommit c1787749358714cfd9d91c4439f4742c52c5d355[m
+Merge: ff27345 b52cdae
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 14:35:02 2025 +0300
+
+    Merge pull request #40 from mari-yudina/mari-yudina-patch-1
+    
+    Update feedback.html
+
+[33mcommit b52cdae141a3a5c9c3055b9d404cd26360864278[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 14:34:47 2025 +0300
+
+    Update feedback.html
+
+[33mcommit ff27345ad0ea9c157918f3ea2fa83e50ca6ed312[m
+Merge: c287ccf c1f13b5
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 14:21:58 2025 +0300
+
+    Merge pull request #39 from mari-yudina/mari-yudina-patch-1
+    
+    Update feedback.html
+
+[33mcommit c1f13b51764c99efcd66e1aea1ba5a8f4a236e0e[m
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 14:21:36 2025 +0300
+
+    Update feedback.html
+
+[33mcommit c287ccff6514687ab5df83add5c1714b85afdb2f[m
+Merge: f73bb7a a243661
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 14:10:48 2025 +0300
+
+    Merge pull request #38 from mari-yudina/feedback_2
+    
+    Feedback 2
+
+[33mcommit a24366185b8ce17c733447bfaff8f7342d53b82e[m
+Merge: 68735ea f73bb7a
+Author: Olha <olha4229@gmail.com>
+Date:   Mon Aug 11 14:04:02 2025 +0300
+
+    merge-main-into-feedback2
+
+[33mcommit 68735eac5aec0f1de21bc467aaa3e24eef550736[m
+Author: Olha <olha4229@gmail.com>
+Date:   Mon Aug 11 14:00:33 2025 +0300
+
+    styling
+
+[33mcommit f73bb7a6d8f5613221cf3f3418d44aae22e9cadc[m
+Merge: a00f607 8ddc97a
+Author: mari-yudina <mari.yudina1983@ukr.net>
+Date:   Mon Aug 11 11:47:00 2025 +0300
+
+    Merge pull request #37 from mari-yudina/some-fix-all-section
+    
+    some fix all section
+
+[33mcommit 8ddc97a655c9fb462b2314c71ef5
