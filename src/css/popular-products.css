@@ -98,53 +98,23 @@
   width: 48px;
   height: 48px;
 }
+
 .popular__products__box-btn {
   display: flex;
-  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
+
 .box__btn-list {
+  min-width: auto;
+  min-height: 48px;
   display: flex;
-  flex-direction: row;
+  align-items: flex-end;
+  justify-content: end;
   gap: 16px;
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
-.popular__products__swiper-pagination.swiper-pagination {
-  visibility: visible !important;
-  display: flex !important;
-  position: static !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 88px !important;
-  height: 8px !important;
-  min-height: 8px !important;
-  transform: none !important;
-}
-.swiper-pagination-bullet {
-  visibility: visible !important;
-  display: flex !important;
-  background-color: #000 !important;
-  opacity: 0.5 !important;
-  border-radius: 50% !important;
-  transition: opacity 250ms ease !important;
-  height: 8px !important;
-  min-height: 8px !important;
-  width: 8px !important;
-  object-fit: contain !important;
-  flex-shrink: 0 !important;
-}
-
-.swiper-pagination-bullet-active {
-  opacity: 1 !important;
-  visibility: visible !important;
-  height: 8px !important;
-  min-height: 8px !important;
-  width: 8px !important;
-  background-color: #6b0609 !important;
-  z-index: 10 !important;
-}
 /* -------------------------------------------start */
 .swiper {
   margin-bottom: 48px;
@@ -158,6 +128,28 @@
   pointer-events: none;
   cursor: default;
   transition: opacity 250ms ease;
+}
+
+.popular__products__box-btn .swiper-pagination {
+  position: static;
+  display: flex;
+  align-items: center;
+}
+
+.popular__products__swiper-pagination .swiper-pagination-bullet {
+  background-color: #a3a1a1 !important;
+  opacity: 40% !important;
+
+  flex-shrink: 0 !important;
+}
+
+.popular__products__swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #6b0609 !important;
+  opacity: 75% !important;
+}
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  width: 140px;
+  transform: none !important;
 }
 
 /* -------------------------------------------end */
