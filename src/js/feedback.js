@@ -1,6 +1,6 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
-import { getFeedback } from './feedback-api.js';
+import {getFeedback} from './feedback-api.js';
 
 const feedbackList = document.querySelector('#feedback-list');
 
@@ -12,14 +12,11 @@ export async function loadFeedbacks() {
     const limitedFeedbacks = feedbacks.slice(0, 10);
 
     if (!limitedFeedbacks.length) {
-      feedbackList.innerHTML =
-        '<li class="swiper-slide">Відгуків поки немає.</li>';
+      feedbackList.innerHTML = '<li class="swiper-slide">Відгуків поки немає.</li>';
       return;
     }
 
-    const markup = limitedFeedbacks
-      .map(
-        item => `
+    const markup = limitedFeedbacks.map(item => `
       <li class="swiper-slide feedback-item">
         <div class="feedback-card">
           <div class="feedback-stars">
@@ -29,9 +26,7 @@ export async function loadFeedbacks() {
           <h3 class="feedback-author">${item.name}</h3>
         </div>
       </li>
-    `
-      )
-      .join('');
+    `).join('');
 
     feedbackList.innerHTML = markup;
 
@@ -51,52 +46,53 @@ export async function loadFeedbacks() {
         },
       },
 
-      navigation: {
-        nextEl: '#feedback-next',
-        prevEl: '#feedback-prev',
+        navigation: {
+          nextEl: '#feedback-next',
+          prevEl: '#feedback-prev',
       },
-
-      pagination: {
-        el: '.feedback_swiper-pagination',
-        clickable: true,
-        dynamicBullets: true,
-        dynamicMainBullets: 6,
-        watchSlidesProgress: true,
+        
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          dynamicBullets: true,
+          dynamicMainBullets: 6,
+          watchSlidesProgress: true,
       },
-
-      on: {
-        init() {
-          toggleButtons(this);
-        },
-        slideChange() {
-          toggleButtons(this);
-        },
-      },
+        
+        on: {
+          init() {
+            toggleButtons(this);
+          },
+          slideChange() {
+            toggleButtons(this);
+          }
+      }
     });
-
+    
     swiper.pagination.render();
-    swiper.pagination.update();
+swiper.pagination.update();
+
 
     function toggleButtons(swiper) {
-      const prev = document.querySelector('#feedback-prev');
-      const next = document.querySelector('#feedback-next');
+  const prev = document.querySelector('#feedback-prev');
+  const next = document.querySelector('#feedback-next');
 
-      if (swiper.isBeginning) {
-        prev.classList.add('disabled');
-      } else {
-        prev.classList.remove('disabled');
-      }
+  if (swiper.isBeginning) {
+    prev.classList.add('disabled');
+  } else {
+    prev.classList.remove('disabled');
+  }
 
-      if (swiper.isEnd) {
-        next.classList.add('disabled');
-      } else {
-        next.classList.remove('disabled');
-      }
-    }
+  if (swiper.isEnd) {
+    next.classList.add('disabled');
+  } else {
+    next.classList.remove('disabled');
+  }
+}
+
   } catch (err) {
     console.error('Помилка завантаження відгуків:', err);
-    feedbackList.innerHTML =
-      '<li class="swiper-slide">Не вдалося завантажити відгуки.</li>';
+    feedbackList.innerHTML = '<li class="swiper-slide">Не вдалося завантажити відгуки.</li>';
   }
 }
 
