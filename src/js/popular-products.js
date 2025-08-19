@@ -88,7 +88,7 @@ function initSwiper() {
     slidesPerView: 1,
     spaceBetween: 16,
     pagination: {
-      el: '.popular__products__swiper-pagination',
+      el: '.swiper-pagination',
       dynamicBullets: true,
       clickable: true,
     },
