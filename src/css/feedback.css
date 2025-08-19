@@ -125,39 +125,40 @@
   border: none;
 }
 
-.swiper-pagination-bullet {
+/* .swiper-pagination-bullet {
   width: 8px !important;
   height: 8px !important;
-  background-color: #ff7f50 !important;
+  background-color: #adabab !important;
   border-radius: 50%;
-  opacity: 0.5;
+  opacity: 0.6;
   transition: opacity 0.3s, background-color 0.3s !important;
   cursor: pointer;
   margin: 0 4px;
+} */
+
+.feedback_swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #070707 !important;
+  opacity: 90% !important;
 }
 
-.swiper-pagination-bullet-active {
-  background-color: #ca4442e2 !important;
-  opacity: 1 !important;
-}
-
-.swiper-pagination-bullet-main {
+/* .swiper-pagination-bullet-main {
   width: 12px !important;
   height: 12px !important;
   opacity: 1 !important;
-  background-color: #ff5722 !important;
-}
+  background-color: #6b0609 !important;
+  opacity: 70% !important;
+} */
 
-.swiper-pagination-bullet-prev,
+/* .swiper-pagination-bullet-prev,
 .swiper-pagination-bullet-next {
   opacity: 0.7 !important;
   background-color: #ff9e80 !important;
-}
+} */
 
-.swiper-pagination-bullet:hover {
+/* .swiper-pagination-bullet:hover {
   background-color: #da606088;
   opacity: 0.9;
-}
+} */
 
 .feedback-nav {
   border: 1px solid rgba(8, 12, 9, 0.15);
@@ -181,9 +182,19 @@
   height: 14px;
 }
 
-.feedback-nav:hover {
-  background-color: #da6060ad;
-  transform: scale(1.1);
+.feedback-nav:hover,
+.feedback-nav:focus {
+  background-color: #975052;
+}
+
+.feedback-nav:active {
+  box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+
+  background: #6b0609;
+  fill: #fff;
 }
 
 .feedback-nav:hover .scroll-icon {
@@ -215,10 +226,11 @@
   margin: 0 4px;
 }
 
-.swiper-pagination {
+.feedback_swiper-pagination.swiper-pagination {
   display: flex;
-  gap: 8px;
+  gap: 0px;
   justify-content: flex-start;
+  transform: none !important;
 }
 
 #feedback-prev.disabled,
